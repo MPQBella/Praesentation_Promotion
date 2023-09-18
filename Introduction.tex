@@ -1,4 +1,5 @@
-\section{Introduction}
+\section{Motivation}
+\begin{comment}
 \subsection{Motivation}
 \begin{frame}
 	\scriptsize
@@ -27,9 +28,25 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
+\end{comment}
 
 
-
+\begin{frame}{Mathematical Model for the Sedimentation of Rod-Like Particles}
+	\scriptsize
+	\text{Coupling of a kinetic Smoluchowski equation with Navier-Stokes equation}
+	\begin{align*}
+		\partial_t f+\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f) & +\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)-\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right) \\
+		& =D_r \Delta_n f+\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f, \notag \\
+		\sigma & =\int_{S^{d-1}}(\text{d} \; \boldsymbol{n} \otimes \boldsymbol{n}-I) f d \boldsymbol{n},  \\
+		\operatorname{Re}\left(\partial_t \boldsymbol{u}+\left(\boldsymbol{u} \cdot \nabla_{\boldsymbol{x}}\right) \boldsymbol{u}\right) & =\Delta_{\boldsymbol{x}} \boldsymbol{u}-\nabla_{\boldsymbol{x}} p+\delta \gamma \nabla_{\boldsymbol{x}} \cdot \sigma-\delta \int_{S^{d-1}} f d \boldsymbol{n} \, e_3, \\
+		\nabla_{\boldsymbol{x}} \cdot \boldsymbol{u} & =0,
+	\end{align*}
+	where $f = f(t, x, n), x \in \mathbb{R}^3 , n \in  S^2, t \in \mathbb{R}$ is a density distribution function of particle orientation. $D_r, \gamma, \delta$ and $Re$ are non-dimensional parameters.
+	
+	\begin{beamercolorbox}[sep=1em,wd=\linewidth,right]{}
+		\tiny{Helzel $\&$ Tzavaras, 2017}
+	\end{beamercolorbox}
+\end{frame}
 
 
 
