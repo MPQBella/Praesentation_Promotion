@@ -1,0 +1,52 @@
+\section{Theoretical background}
+\begin{frame}\frametitle{Spherical Harmonics}
+	\small
+		\begin{theorem}
+			Let $P^{i_1}_{n_1}(\phi, \theta)$ and $P^{i_2}_{n_2}(\phi, \theta)$ are two different harmonic polynomial basis functions. Then the integral over the sphere is equal to zero
+			\begin{align*}
+				\int_{0}^{2\pi} \int_{0}^{\pi} P^{i_1}_{n_1} \cdot P^{i_2}_{n_2} \cdot \sin(\theta) d\theta d\phi = 0.
+			\end{align*}
+		\end{theorem}
+
+		\begin{theorem}
+			Let $P^i_{2n}$ with $n = 0, ..., \infty$ and $i = n, ..., -n$ be the normalized harmonic polynomial basis functions. The integral over $S^2$ of the normalized basis functions is equal to one.
+		\end{theorem}
+
+	The properties show that the spherical harmonics on the unit sphere form an orthonormal basis, which means that they are orthogonal to each other, and the integral over the unit sphere of each individual spherical harmonic is equal to 1 when they are normalized.
+\end{frame}
+
+\begin{frame}
+	\begin{definition}
+		The \textbf{Laplace-Beltrami operator} on the unit sphere $S^2$ is given by
+		\begin{align*}
+			\Delta_{S^2} f = \frac{1}{\sin ^2 \theta} \partial_{\phi \phi} f + \frac{1}{\sin \theta} \partial_\theta\left(\sin \theta \partial_\theta f\right).
+		\end{align*}
+		The spherical harmonic function are the eigenfunctions of Laplace-Beltrami operator with the eigenvalues $(- \ell (\ell +1),\ell \in \mathbb{N}_0)$(see \cite{zbMATH01218597})
+		\begin{align*}
+			\Delta_{S^2}P^i_n = -\ell(\ell+1) P^i_n,
+		\end{align*}
+		with $n = 0, ..., \infty$ and $i = n ,..., -n$.
+	\end{definition}
+\end{frame}
+
+%\begin{columns}[T, totalwidth=\textwidth]
+%	\begin{column}{0.44\textwidth}
+%		\begin{definition}
+%			\begin{itemize}
+%				\item x: Input image
+%				\item z: Internal latent vector
+%				\item $\phi$:  Encoder model parameter
+%				\item $\theta$:  Decoder model parameter
+%			\end{itemize}
+%		\end{definition}
+%	\end{column}
+%	\begin{column}{0.53\textwidth}
+%		\begin{definition}
+%			\begin{itemize}
+%				\item $q_{\phi}(z|x)$: Probability distr. (Encoder)
+%				\item $p_{\theta}(x|z)$: Probability distr. (Decoder)
+%				\item $KL(P,Q) = \sum_{x \in X}^{} P(x) log(\frac{P(x)}{Q(x)})$	
+%			\end{itemize}
+%		\end{definition}
+%	\end{column}
+%\end{columns}
