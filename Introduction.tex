@@ -48,5 +48,31 @@
 	\end{beamercolorbox}
 \end{frame}
 
+\begin{frame}{A Hierarchy of Moment Equations for a Simplified Model}
+	\scriptsize
+	Consider simplified flow problem with $\boldsymbol{u} = (0,0, w(x,t))^T$ and $f=f(t,x,0)$. Using $\gamma = 0$ the coupled system reads
+	\begin{align*}
+		\partial_t f(t,x,0) +  \textcolor{cyan}{\partial_\theta(w_x \cos^2 \theta f)} - \partial_x (\sin \theta \cos \theta f) &=  \textcolor{cyan}{D_r \partial_{\theta\theta} f} \\
+		R e \partial_t w &=\partial_{x x} w+\delta\left(\bar{\rho}-\int_0^{2 \pi} f d \theta\right)
+	\end{align*}
+
+	Hierarchy of moment equations:
+	\begin{align*}
+		\partial_t \rho(x, t) & = \partial_x S_1 \\
+		\partial_t C_{\ell}(x, t) & = \frac{1}{4} \partial_x\left(S_{\ell+1}-S_{\ell-1}\right)- \textcolor{cyan}{\frac{\ell}{2} w_x\left(S_{\ell-1}+2 S_{\ell}+S_{\ell+1}\right)}- \textcolor{cyan}{4 \ell^2 D_r C_{\ell}}, \\
+		\partial_t S_{\ell}(x, t) & =\frac{1}{4} \partial_x\left(C_{\ell-1}-C_{\ell+1}\right)+  \textcolor{cyan}{\frac{\ell}{2} w_x\left(C_{\ell-1}+2 C_{\ell}+C_{\ell+1}\right)}- \textcolor{cyan}{4 \ell^2 D_r S_{\ell}}, \quad \ell=1,2, \ldots
+	\end{align*}
+
+	Compare:
+	
+	\begin{align*}
+		\partial_t f + \textcolor{cyan}{\partial_\theta(w_x \cos^2 \theta f)} = \textcolor{cyan}{D_r \partial_{\theta\theta} f} \quad \text{and} \quad \partial_t Q(x,t) = \textcolor{cyan}{\phi}(Q(x,t))
+	\end{align*}
+	
+	\begin{beamercolorbox}[sep=1em,wd=\linewidth,right]{}
+		\tiny{Dahm $\&$ Helzel, 2022}
+	\end{beamercolorbox}
+\end{frame}
+
 
 

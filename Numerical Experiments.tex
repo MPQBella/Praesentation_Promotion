@@ -38,9 +38,8 @@
 		\begin{minipage}{0.4\textwidth}
 			\includegraphics[scale=0.35]{Bilder/exakteLsg_example31_l=1_dr1}
 		\end{minipage}
-		\caption{Exact steady state solution with different $D_r$}
+		\caption{Exact steady state solution for different $D_r$}
 	\end{figure}
-	
 \end{frame}
 
 
@@ -54,7 +53,7 @@
 		\begin{minipage}{0.48\textwidth}
 			\includegraphics[scale=0.4]{Bilder/example3.1_14nd_linspace(0,10,1000)_dr=1}
 		\end{minipage}
-		\caption{Numerical solution on $S^2$ with basis functions of $14th.$ order}
+		\caption{Numerical solution on $S^2$ with basis functions of $14th$ order}
 	\end{figure}
 \end{frame}
 
@@ -72,7 +71,7 @@
 		\begin{minipage}{0.45\textwidth}
 			\includegraphics[scale=0.42]{Bilder/Konvergenzstudie_maxnorm_dr=1_l=1}
 		\end{minipage}
-		\caption{Error with respect to basisfunction with different $D_r$}
+		\caption{Error with respect to number of basis functions for different $D_r$}
 	\end{figure}
 \end{frame}
 
@@ -83,9 +82,9 @@
 \begin{frame}{Stability analysis}
 	\begin{figure}
 		\centering
-		\subfloat[Coefficients as function]{\includegraphics[width=5.5cm,height=4cm]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd}}
+		\subfloat[Coefficients as function of time]{\includegraphics[width=5.5cm,height=4cm]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd}}
 		\qquad
-		\subfloat[Eigenvalue]{\includegraphics[width=5.5cm,height=3.8cm]{Bilder/Stability_analysis_2nd_dr0.1}}
+		\subfloat[Eigenvalues]{\includegraphics[width=5.5cm,height=3.8cm]{Bilder/Stability_analysis_2nd_dr0.1}}
 		\caption{With $2nd$ order and $D_r$ = 0.1}
 	\end{figure}
 \end{frame}
@@ -99,11 +98,11 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_4th_dr0.1}
 		\end{subfigure}
-		\caption{Eigenvalue of matrix $A$ with $D_r = 0.1$}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 0.1$}
 	\end{figure}
 
 	\begin{block}{Finding}
-		Eigenvalue for matrix of $2nd$ order ODE systems $>0$ $\Rightarrow$ method unstable
+		Eigenvalues for matrix of $2nd$ order ODE systems $>0$ $\Rightarrow$ method unstable
 	\end{block}
 \end{frame}
 
@@ -116,7 +115,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_14th_dr0.1}
 		\end{subfigure}
-		\caption{Eigenvalue of matrix $A$ with $D_r = 0.1$}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 0.1$}
 	\end{figure}
 \end{frame}
 
@@ -129,8 +128,11 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_4th_dr1}
 		\end{subfigure}
-		\caption{Eigenvalue of matrix $A$ with $D_r = 1$}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 1$}
 	\end{figure}
+	\begin{block}{Finding}
+	An increase of the number of basis functions improves the stability of the spectral method
+\end{block}
 \end{frame}
 
 \begin{frame}{Absolute stability: for large $D_r$}
@@ -142,7 +144,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/RK4_region_2nd_dr=1_dt=0.1}
 		\end{subfigure}
-		\caption{Stability region $RK4$ with eigenvalue of $2nd$ order ODE systems with $Dr=1$ and different time steps}
+		\caption{Stability region of $RK4$ with eigenvalues of $2nd$ order ODE system with $Dr=1$ and different time steps}
 	\end{figure}
 \end{frame}
 
@@ -155,11 +157,11 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/RK4_region_14th_dr=1_dt=0.01}
 		\end{subfigure}
-		\caption{Stability region $RK4$ with eigenvalue of $14th$ order ODE systems with $Dr=1$ and different time steps}
+		\caption{Stability region of $RK4$ with eigenvalues of $14th$ order ODE system with $Dr=1$ and different time steps}
 	\end{figure}
 
 	\begin{block}{Finding}
-	For absolute stability for large $D_r$  $\rightarrow$ smaller time steps is needed
+	For absolute stability for large $D_r$  $\rightarrow$ smaller time steps are needed
 	\end{block}
 \end{frame}
 
@@ -173,7 +175,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd_dr=1}
 		\end{subfigure}
-		\caption{Coefficients as function of $2nd$ order}
+		\caption{Coefficients as function of time for $2nd$ order}
 	\end{figure}
 \end{frame}
 
@@ -187,7 +189,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_4th_dr=1}
 		\end{subfigure}
-		\caption{Coefficients as function of $4th$ order}
+		\caption{Coefficients as function of time for $4th$ order}
 	\end{figure}
 \end{frame}
 
@@ -201,7 +203,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_6th_dr=1}
 		\end{subfigure}
-		\caption{Coefficients as function of $6th$ order}
+		\caption{Coefficients as function of time for $6th$ order}
 	\end{figure}
 \end{frame}
 
@@ -215,7 +217,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_14th_dr=1}
 		\end{subfigure}
-		\caption{Coefficients as function of $14th$ order}
+		\caption{Coefficients as function of time for $14th$ order}
 	\end{figure}
 \end{frame}
 
@@ -350,11 +352,11 @@ TODO
 			\centering
 			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_2nd_dr1}
 		\end{minipage}
-		\caption{Eigenvalue of matrix $A$ with basis functions of $2nd$ order}
+		\caption{Eigenvalues of matrix $A$ for $2nd$ order basis functions}
 	\end{figure}
 	
 	\begin{block}{Finding}
-		Sprectal method for $2nd$ order is stable with for both small and large $D_r$.
+		Spectral method for $2nd$ order is stable for any $D_r$.
 	\end{block}
 \end{frame}
 
@@ -369,11 +371,11 @@ TODO
 			\centering
 			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_8th_dr1}
 		\end{minipage}
-		\caption{Eigenvalue of matrix $A$ with basis functions of $8th$ order}
+		\caption{Eigenvalues of matrix $A$ for $8th$ order basis functions}
 	\end{figure}
 	
-	\begin{block}{Proposition 2}
-		Sprectal method for $8th$ order is stable with for both small and large $D_r$.
+	\begin{block}{Finding}
+		Spectral method for $8th$ order is stable for any $D_r$.
 	\end{block}
 \end{frame}
 
@@ -488,13 +490,13 @@ TODO
 
 \begin{frame}{Conclusion}
 		\begin{itemize}
-			\item Derivation of the sprectal method is the first step to derive the moment system
-			\item In order for the method is stable,
+			\item Derivation of the spectral method is the first step to derive the moment system
+			\item In order for the method to be stable,
 				\begin{itemize}
 					\item for small $D_r$ more approach functions 
 					\item for large $D_r$ smaller time steps 
 				\end{itemize} 
-			is needed
+			are needed
 		\end{itemize}
 \end{frame}
 

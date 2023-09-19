@@ -6,7 +6,7 @@
 		\textcolor{blue}{\partial_t f}+ \textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)} & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}-\textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)} \notag \\
 		& = \textcolor{blue}{D_r \Delta_n f}+\textcolor{gray!80}{\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f} \label{SmochEq_kurz}
 	\end{align}
-    with externally imposed gradient $\nabla_x \vec{u}_{\mathrm{ext}} = \left(\begin{array}{lll}
+    with externally imposed gradient $\nabla_x \boldsymbol{u}_{\mathrm{ext}} = \left(\begin{array}{lll}
     	u_{x} & u_{y} & u_{z} \\
     	v_{x} & v_{y} & v_{z} \\
     	w_{x} & w_{y} & w_{z}
@@ -17,10 +17,10 @@
 	\begin{align}
 		\sin \theta \partial_t f + \partial_\phi\left(a(\phi, \theta) f\right)+\partial_\theta\left(b(\phi, \theta) f\right) = D_r \left(\partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)+\partial_\theta\left(\sin \theta \partial_\theta f\right)\right), \label{Smochluch_S2}
 	\end{align}
-	with $\phi \in [0, 2 \pi]$ and $\theta \in [0, \pi]$ \\
+	with $\phi \in [0, 2 \pi]$ and $\theta \in [0, \pi]$\\
 	\vspace{12pt}
 	\pause
-   	Ansatz with a \textcolor{cyan}{spectral method}
+   	Ansatz for a \textcolor{cyan}{spectral method}
 	\begin{align}
 		f(\phi, \theta, t) \approx f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta), \label{ansatz}
 	\end{align}
@@ -56,41 +56,34 @@
 % Properties
 %%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Harmonic polynomial basis functions}
-	Basis function ${P}^{i}_{n}(\phi, \theta)$ with $n = 0, ..., \infty$ and $i = n, ..., -n$:
-	\begin{align*}
-		TODO
-	\end{align*}
-
-	\begin{figure}
-	\begin{minipage}{0.25\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/P0_Kugel}
-	\end{minipage}%
-	\begin{minipage}{0.25\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/P_12_Kugel}
-	\end{minipage}%
-	\begin{minipage}{0.25\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/P02_Kugel}
-	\end{minipage}%
-	\begin{minipage}{0.25\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Bilder/P_14_Kugel}
-	\end{minipage}
-	\caption{Harmonic polynomial basis functions}
-	\end{figure}
-\end{frame}
-
 \begin{frame}{Properties of harmonic polynomial basis functions}
 	\begin{itemize}
-		\item Laplace-Beltrami operator $\Delta_{S^2}P^i_n = -n(n+1) P^i_n$, with the eigenvalues $-n(n +1),n \in \mathbb{N}_0$ 
-		\item $	f(\phi, \theta, t) \approx f_0(t) \cdot P_0^0 + \sum_{n=1}^{\infty} \sum_{i=-2n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta)$
+		\item $\Delta_{S^2}P^i_n = -n(n+1) P^i_n$
+		\vspace{12pt}
+		\item $	f(\phi, \theta) \approx f_0 \cdot P_0^0 + \sum_{n=1}^{\infty} \sum_{i=-2n}^{n} c^i_{2n} \cdot P^i_{2n}(\phi, \theta)$
+		\vspace{12pt}
 		\item $(P^i_n, P^l_m)_{S^2} = 0, \forall i \neq l, n \neq m$
+		\vspace{12pt}
 		\item $	(P^i_n, P^i_n)_{S^2} = 1$
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{Harmonic polynomial basis functions}
+	Basis function ${P}^{i}_{n}(\phi, \theta)$, $n = 0, ..., \infty$ and $i = n, ..., -n$ are computed from orthogonal polynomials (Legendre polynomials). 
+	\vspace{15pt}
+	\begin{figure}
+		\centering
+		\subfloat[$P^0_0$]{\includegraphics[width=2cm,height=2cm]{Bilder/P0_Kugel}}
+		\qquad
+		\subfloat[$P^{-1}_2$]{\includegraphics[width=2cm,height=2cm]{Bilder/P_12_Kugel}}
+		\qquad
+		\subfloat[$P^0_2$]{\includegraphics[width=2cm,height=2cm]{Bilder/P02_Kugel}}
+		\qquad
+		\subfloat[$P^{-1}_4$]{\includegraphics[width=2cm,height=2cm]{Bilder/P_14_Kugel}}
+		\caption{Some harmonic polynomial basis functions}
+	\end{figure}
+\end{frame}
+
 
 \begin{comment}
 \begin{frame}{Harmonic polynomial basis functions}
@@ -143,7 +136,7 @@
 	\begin{align}
 		\underbrace{\sin \theta \partial_t f}_{(1)} + \underbrace{\partial_\phi\left(a(\phi, \theta) f\right)+\partial_\theta\left(b(\phi, \theta) f\right)}_{(2)} = \underbrace{D_r \left(\partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)+\partial_\theta\left(\sin \theta \partial_\theta f\right)\right)}_{(3)} \label{Smoch_S2}
 	\end{align}	
-	Ansatz: $f(\phi, \theta, t) = f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta)$
+	Ansatz: $f(\phi, \theta, t) = f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta)$
  	\vspace{12pt}
  	\begin{itemize}
  		\item Insert ansatz for $f$ in (\ref{Smoch_S2}) 
@@ -156,28 +149,28 @@
 	For  $f(\phi, \theta, t) = c^0_0(t) + \sum_{i=-2}^{2} c^i_{2}(t) \cdot P^i_{2}(\phi, \theta)$ we obtain
 		\begin{equation}
 		\left(\begin{array}{c}
-			f_0^{\prime}(t) \\
-			c_2^{-2} \\
-			c_2^{-1} \\
-			c_2^0 \\
-			c_2^1 \\
-			c_2^2
-		\end{array}\right) - A \cdot
+			f_0(t) \\
+			c_2^{-2}(t) \\
+			c_2^{-1}(t) \\
+			c_2^0(t) \\
+			c_2^1(t) \\
+			c_2^2(t)
+		\end{array}\right)^{\prime} - A \cdot
 		\left(\begin{array}{c}
-			f_0 \\
-			c_2^{-2} \\
-			c_2^{-1} \\
-			c_2^0 \\
-			c_2^1 \\
-			c_2^2
-		\end{array}\right) = 
+			f_0(t) \\
+			c_2^{-2}(t) \\
+			c_2^{-1}(t) \\
+			c_2^0(t) \\
+			c_2^1(t) \\
+			c_2^2(t)
+		\end{array}\right) = -6 D_r
 		\left(\begin{array}{c}
 			0 \\
-			-6 D_r c^{-2}_2(t) \\
-			-6 D_r c_2^{-1}(t) \\
-			-6 D_r c_2^0(t) \\
-			-6 D_r c_2^1(t) \\
-			-6 D_r c_2^2(t)
+			c^{-2}_2(t) \\
+			c_2^{-1}(t) \\
+			c_2^0(t) \\
+			c_2^1(t) \\
+			c_2^2(t)
 		\end{array}\right)
 	\end{equation}
 \end{frame}
@@ -199,20 +192,29 @@
 \end{frame}
 \end{comment}
 
+%%%%%%%%%%%%%%
 \begin{frame}
+	\centering
 	The matrix $A$ has the form \\
-	TODO
-	\tiny
+	\vspace{16pt}
+	\resizebox{\textwidth}{!}{
 	\begin{equation*}
-		\left(\begin{array}{lllll}
-			0 & 0 & 0 & 0 & 0\\
-			\frac{1}{5} \sqrt{15}\left(u_x-v_y\right) & \frac{1}{7}\left(u_x+v_y-2 w_z\right) & \frac{1}{7}\left(-5 u_z+2 w_x\right) & \frac{1}{7} \sqrt{3}\left(-u_x+v_y\right) &\frac{1}{7} \left(5v_z-2w_y\right)\\
-			\frac{1}{5} \sqrt{15}\left(-u_z-w_x\right) & \frac{1}{7}\left(2 u_z-5 w_x\right) & \frac{1}{7}\left(u_x-2 v_y+w_z\right) & \frac{1}{7} \sqrt{3}\left(-4u_z+3w_x\right)&\frac{1}{7} \left(5u_y-2v_x\right)\\
-			\frac{1}{5} \sqrt{5}\left(-u_x-v_y+2 w_z\right) & \frac{1}{7} \sqrt{3}\left(-u_x+v_y\right) & \frac{1}{7} \sqrt{3}\left(3 u_z-4 w_x\right) & \frac{1}{7} \left(-u_x-v_y + 2w_z\right)&\frac{1}{7} \sqrt{3}\left(-3v_z-4w_y\right) \\
-			\frac{1}{5} \sqrt{15}\left(-v_z-w_y\right) & \frac{1}{7}\left(-2 v_z+5 w_y\right) & \frac{1}{7}\left(-2 u_y+5 v_x\right)& \frac{1}{7} \sqrt{3}\left(-4v_z+3w_y\right)&\frac{1}{5} \sqrt{15}\left(-u_z-w_x\right) \\
-			\frac{1}{5} \sqrt{15}\left(u_y+v_x\right) & \left(-u_y+v_x\right) & \frac{1}{7}\left(-5 v_z+2 w_y\right) & \frac{1}{7} \sqrt{3}\left(-u_y-v_x\right)&\frac{1}{7} \left(-5u_z+2w_x\right)
-		\end{array}\right.
+		\begin{pmatrix}
+			\vspace{10pt}
+			0 & 0 & 0 & 0 & 0 & 0 \\
+			\vspace{12pt}
+			\frac{1}{5}\sqrt{15}(u_x-v_y) & \frac{1}{7}(u_x+v_y-2w_z) & \frac{1}{7}(-5u_z+2w_x) & \frac{1}{7}\sqrt{3}(-u_x+v_y) & \frac{1}{7}(5v_z-2w_y) &  (u_y -v_x) \\
+			\vspace{12pt}
+			\frac{1}{5}\sqrt{15}(-u_z-w_x) & \frac{1}{7}(2u_z-5w_x) & \frac{1}{7}(u_x-2v_y+w_z) & \frac{1}{7}\sqrt{3}(-4u_z+3w_x) & \frac{1}{7}(5u_y-2v_x) &  \frac{1}{7} \left(2v_z-5w_y\right) \\
+			\vspace{12pt}
+			\frac{1}{5}\sqrt{5}(-u_x-v_y+2w_z) & \frac{1}{7}\sqrt{3}(-u_x+v_y) & \frac{1}{7}\sqrt{3}(3u_z-4w_x) & \frac{1}{7}(-u_x-v_y+2w_z) & \frac{1}{7}\sqrt{3}(-3v_z-4w_y) & \frac{1}{7} \sqrt{3}\left(-u_y-v_x\right) \\
+			\vspace{12pt}
+			\frac{1}{5}\sqrt{15}(-v_z-w_y) & \frac{1}{7}(-2v_z+5w_y) & \frac{1}{7}(-2u_y+5v_x) & \frac{1}{7}\sqrt{3}(-4v_z+3w_y) & \frac{1}{5}\sqrt{15}(-u_z-w_x) &  \frac{1}{7} \left(2u_z-5w_x\right)\\
+			\vspace{12pt}
+			\frac{1}{5}\sqrt{15}(u_y+v_x) & (-u_y+v_x) & \frac{1}{7}(-5v_z+2w_y) & \frac{1}{7}\sqrt{3}(-u_y-v_x) & \frac{1}{7}(-5u_z+2w_x) & \frac{1}{7} \left(u_x+v_y-2w_z\right)
+		\end{pmatrix}
 	\end{equation*}
+	}
 \end{frame}
 
 
