@@ -6,7 +6,7 @@
 		\textcolor{blue}{\partial_t f}+ \textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)} & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}-\textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)} \notag \\
 		& = \textcolor{blue}{D_r \Delta_n f}+\textcolor{gray!80}{\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f} \label{SmochEq_kurz}
 	\end{align}
-    with externally imposed gradient $\nabla_x \boldsymbol{u}_{\mathrm{ext}} = \left(\begin{array}{lll}
+    with externally imposed velocity gradient $\nabla_x \boldsymbol{u}_{\mathrm{ext}} = \left(\begin{array}{lll}
     	u_{x} & u_{y} & u_{z} \\
     	v_{x} & v_{y} & v_{z} \\
     	w_{x} & w_{y} & w_{z}
@@ -20,11 +20,11 @@
 	with $\phi \in [0, 2 \pi]$ and $\theta \in [0, \pi]$\\
 	\vspace{12pt}
 	\pause
-   	Ansatz for a \textcolor{cyan}{spectral method}
+   	Ansatz for our \textcolor{cyan}{spectral method}
 	\begin{align}
 		f(\phi, \theta, t) \approx f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta), \label{ansatz}
 	\end{align}
-	where $P^i_{2n}(\phi, \theta)$ are harmonic polynomial basis functions. %, i.e. are eigenfunctions of Laplace Beltrami operator.
+	where $P^i_{2n}(\phi, \theta)$ are harmonic polynomial basis functions %, i.e. are eigenfunctions of Laplace Beltrami operator.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,9 +60,9 @@
 	\begin{itemize}
 		\item $\Delta_{S^2}P^i_n = -n(n+1) P^i_n$
 		\vspace{12pt}
-		\item $	f(\phi, \theta) \approx f_0 \cdot P_0^0 + \sum_{n=1}^{\infty} \sum_{i=-2n}^{n} c^i_{2n} \cdot P^i_{2n}(\phi, \theta)$
+		\item $	f(\phi, \theta) = f_0 \cdot P_0^0 + \sum_{n=1}^{\infty} \sum_{i=-2n}^{n} c^i_{2n} \cdot P^i_{2n}(\phi, \theta)$
 		\vspace{12pt}
-		\item $(P^i_n, P^l_m)_{S^2} = 0, \forall i \neq l, n \neq m$
+		\item $(P^i_n, P^l_m)_{S^2} = 0, \forall i \neq l \; \text{or} \; n \neq m$
 		\vspace{12pt}
 		\item $	(P^i_n, P^i_n)_{S^2} = 1$
 	\end{itemize}
@@ -70,7 +70,7 @@
 
 \begin{frame}{Harmonic polynomial basis functions}
 	Basis function ${P}^{i}_{n}(\phi, \theta)$, $n = 0, ..., \infty$ and $i = n, ..., -n$ are computed from orthogonal polynomials (Legendre polynomials). 
-	\vspace{15pt}
+	\vspace{20pt}
 	\begin{figure}
 		\centering
 		\subfloat[$P^0_0$]{\includegraphics[width=2cm,height=2cm]{Bilder/P0_Kugel}}
@@ -134,7 +134,7 @@
 	\scriptsize
 	Kinetic Smochluchowski equation on $S^2$:
 	\begin{align}
-		\underbrace{\sin \theta \partial_t f}_{(1)} + \underbrace{\partial_\phi\left(a(\phi, \theta) f\right)+\partial_\theta\left(b(\phi, \theta) f\right)}_{(2)} = \underbrace{D_r \left(\partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)+\partial_\theta\left(\sin \theta \partial_\theta f\right)\right)}_{(3)} \label{Smoch_S2}
+		\underbrace{\sin \theta \partial_t f}_{[1]} + \underbrace{\partial_\phi\left(a(\phi, \theta) f\right)+\partial_\theta\left(b(\phi, \theta) f\right)}_{[2]} = \underbrace{D_r \left(\partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)+\partial_\theta\left(\sin \theta \partial_\theta f\right)\right)}_{[]3]} \label{Smoch_S2}
 	\end{align}	
 	Ansatz: $f(\phi, \theta, t) = f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta)$
  	\vspace{12pt}
@@ -193,10 +193,10 @@
 \end{comment}
 
 %%%%%%%%%%%%%%
+
 \begin{frame}
-	\centering
-	The matrix $A$ has the form \\
-	\vspace{16pt}
+	For $N = 1$ the matrix $A$ has the form \\
+	\vspace{20pt}
 	\resizebox{\textwidth}{!}{
 	\begin{equation*}
 		\begin{pmatrix}
@@ -216,6 +216,7 @@
 	\end{equation*}
 	}
 \end{frame}
+
 
 
 \begin{comment}
