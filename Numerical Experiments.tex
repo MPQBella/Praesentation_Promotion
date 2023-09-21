@@ -38,7 +38,7 @@
 		\begin{minipage}{0.4\textwidth}
 			\includegraphics[scale=0.35]{Bilder/exakteLsg_example31_l=1_dr1}
 		\end{minipage}
-		\caption{Exact steady state solution for different $D_r$}
+		\caption{Exact steady-state solution for different $D_r$}
 	\end{figure}
 \end{frame}
 
@@ -82,10 +82,10 @@
 \begin{frame}{Stability analysis}
 	\begin{figure}
 		\centering
-		\subfloat[Coefficients as functions of time]{\includegraphics[width=5.5cm,height=4cm]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd}}
+		\subfloat[Coefficients as functions of time]{\includegraphics[width=5.5cm,height=4cm]{Bilder/elongational_l=1_ueberZeit_2nd_ohneUeberschrift}}
 		\qquad
-		\subfloat[Eigenvalues]{\includegraphics[width=5.5cm,height=3.8cm]{Bilder/Stability_analysis_2nd_dr0.1}}
-		\caption{With $N=1$ and $D_r$ = 0.1}
+		\subfloat[Eigenvalues of matrix]{\includegraphics[width=5.5cm,height=3.8cm]{Bilder/eigenvalues_2nd_dr0.1}}
+		\caption{For $N=1$ and $D_r$ = 0.1}
 	\end{figure}
 \end{frame}
 
@@ -144,7 +144,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/RK4_region_2nd_dr=1_dt=0.1}
 		\end{subfigure}
-		\caption{Stability region of $RK4$ with eigenvalues of $2nd$ order ODE system for $D_r=1$ and different time steps}
+		\caption{Stability region of $RK4$ with eigenvalues for $N=1$, $D_r=1$ and different time steps}
 	\end{figure}
 \end{frame}
 
@@ -157,7 +157,7 @@
 		\begin{subfigure}{0.48\textwidth}
 			\includegraphics[width=\linewidth]{Bilder/RK4_region_14th_dr=1_dt=0.01}
 		\end{subfigure}
-		\caption{Stability region of $RK4$ with eigenvalues of $14th$ order ODE system for $D_r=1$ and different time steps}
+		\caption{Stability region of $RK4$ with eigenvalues for $N=7$, $D_r=1$ and different time steps}
 	\end{figure}
 
 	\begin{block}{Finding}
@@ -165,6 +165,16 @@
 	\end{block}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Coefficients as functions of time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+		\begin{figure}
+			\includegraphics[scale=0.5]{Bilder/Konvergenzstudie_maxnorm_dr=0.1_l=1}
+		\end{figure}
+\end{frame}
 
 \begin{frame}{Coefficients as functions of time}
 	\begin{figure}
@@ -352,11 +362,11 @@ TODO
 			\centering
 			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_2nd_dr1}
 		\end{minipage}
-		\caption{Eigenvalues of matrix $A$ for $2nd$ order basis functions}
+		\caption{Eigenvalues of matrix $A$ for $N=1$}
 	\end{figure}
 	
 	\begin{block}{Finding}
-		Spectral method for $2nd$ order is stable for any $D_r$.
+		Spectral method for $N=1$ is stable for any $D_r$.
 	\end{block}
 \end{frame}
 
@@ -371,11 +381,11 @@ TODO
 			\centering
 			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_8th_dr1}
 		\end{minipage}
-		\caption{Eigenvalues of matrix $A$ for $8th$ order basis functions}
+		\caption{Eigenvalues of matrix $A$ for $N=4$}
 	\end{figure}
 	
 	\begin{block}{Finding}
-		Spectral method for $8th$ order is stable for any $D_r$.
+		Spectral method for $N=4$ is stable for any $D_r$.
 	\end{block}
 \end{frame}
 
