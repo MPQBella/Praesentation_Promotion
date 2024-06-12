@@ -1,9 +1,0 @@
-\babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Motivation}{4}{0}{1}
-\beamer@sectionintoc {2}{Spectral method}{12}{0}{2}
-\beamer@sectionintoc {3}{Numerical Results}{25}{0}{3}
-\beamer@subsectionintoc {3}{1}{Shear flow on $S^2$}{26}{0}{3}
-\beamer@subsubsectionintoc {3}{1}{1}{Stability analysis}{28}{0}{3}
-\beamer@subsectionintoc {3}{2}{Elongational flow}{31}{0}{3}
-\beamer@subsubsectionintoc {3}{2}{1}{Stability analysis}{34}{0}{3}
