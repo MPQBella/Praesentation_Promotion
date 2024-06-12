@@ -1,0 +1,425 @@
+\section{Stability Analysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Elongational flow
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example}
+	\centering
+	Elongational flow
+\end{frame}
+
+
+\begin{frame}{Elongational flow}
+	\scriptsize
+	Consider
+	\begin{align*}
+		\nabla_{x} \boldsymbol{u}_{\mathrm{ext}}=\left(\begin{array}{ccc}
+			2 & 0 & 0 \\
+			0 & -1 & 0 \\
+			0 & 0 & -1
+		\end{array}\right) %, \text{for $\ell = 1, -1$}.
+	\end{align*}
+	
+	Exact steady-state solution
+	\begin{align}
+		f_{\text {exact}}(\phi, \theta)=C_1 \exp \left(-\frac{3}{2 D_{\mathrm{r}}}\left(1-\cos ^2(\phi) \sin ^2(\theta)\right)\right),
+	\end{align}
+	with the constants $C_1 = 2.30121384511755303190$ for $D_r=0.1$.
+	
+	\begin{figure}
+		%	\small
+		%Solution on $S^2$
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.35]{Bilder/exakteLsg_example3.1}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.35]{Bilder/exakteLsg_example31_l=1_dr1}
+		\end{minipage}
+		\caption{Exact steady-state solution for different $D_r$}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Elongational flow}
+	\begin{figure}
+		\begin{minipage}{0.48\textwidth}
+			\includegraphics[scale=0.4]{Bilder/example3.1_14nd_linspace(0,10,500)_dr=0.1}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.48\textwidth}
+			\includegraphics[scale=0.4]{Bilder/example3.1_14nd_linspace(0,10,1000)_dr=1}
+		\end{minipage}
+		\caption{Numerical solution with basis functions of $14th$ order}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Convergence Study}
+	For the convergence study, the maximum norm error is used
+	\begin{align*}
+		E_{max} = max|U_{exact} - U_{approx}|.
+	\end{align*}
+	
+	\begin{figure}
+		\begin{minipage}{0.45\textwidth}
+			\includegraphics[scale=0.42]{Bilder/Konvergenzstudie_maxnorm_dr=0.1_l=1}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.45\textwidth}
+			\includegraphics[scale=0.42]{Bilder/Konvergenzstudie_maxnorm_dr=1_l=1}
+		\end{minipage}
+		\caption{Error with respect to number of basis functions for different $D_r$}
+	\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stability analysis
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Stability analysis}
+	\begin{figure}
+		\centering
+		\subfloat[Coefficients as functions of time]{\includegraphics[width=5.5cm,height=4cm]{Bilder/elongational_l=1_ueberZeit_2nd_ohneUeberschrift}}
+		\qquad
+		\subfloat[Eigenvalues of matrix]{\includegraphics[width=5.5cm,height=3.8cm]{Bilder/eigenvalues_2nd_dr0.1}}
+		\caption{For $N=1$ and $D_r$ = 0.1}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Stability analysis: Eigenvalues for small $D_r$}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_2nd_dr0.1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_4th_dr0.1}
+		\end{subfigure}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 0.1$}
+	\end{figure}
+
+	\begin{block}{Finding}
+		Eigenvalues for matrix of $2nd$ order ODE systems $>0$ $\Rightarrow$ ODE unstable
+	\end{block}
+\end{frame}
+
+\begin{frame}{Stability analysis: Eigenvalues for small $D_r$}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_6th_dr0.1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_14th_dr0.1}
+		\end{subfigure}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 0.1$}
+	\end{figure}
+	\begin{block}{Finding}
+		An increase of the number of basis functions improves the stability of the spectral method
+	\end{block}
+\end{frame}
+
+\begin{frame}{Stability analysis: Eigenvalues for large $D_r$}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_2nd_dr1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/Stability_analysis_4th_dr1}
+		\end{subfigure}
+		\caption{Eigenvalues of matrix $A$ for $D_r = 1$}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Absolute stability: for large $D_r$}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/RK4_region_2nd_dr=1_dt=1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/RK4_region_2nd_dr=1_dt=0.1}
+		\end{subfigure}
+		\caption{Stability region of $RK4$ with eigenvalues for $N=1$, $D_r=1$ and different time steps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Absolute stability: for large $D_r$}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/RK4_region_14th_dr=1_dt=0.1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/RK4_region_14th_dr=1_dt=0.01}
+		\end{subfigure}
+		\caption{Stability region of $RK4$ with eigenvalues for $N=7$, $D_r=1$ and different time steps}
+	\end{figure}
+
+	\begin{block}{Finding}
+	For absolute stability for large $D_r$  $\rightarrow$ smaller time steps are needed
+	\end{block}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Coefficients as functions of time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+		\begin{figure}
+			\includegraphics[scale=0.5]{Bilder/Konvergenzstudie_maxnorm_dr=0.1_l=1}
+			\caption{Error with respect to number of basis functions for $D_r = 0.1$}
+		\end{figure}
+	
+		\begin{itemize}
+			\item for small Dr $\rightarrow$ large inaccuracy
+			\item the smallest error is between $10^{-1}$ and $10^{-2}$
+		\end{itemize}
+\end{frame}
+
+\begin{comment}
+\begin{frame}{Coefficients as functions of time}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_2nd_dr=1}
+		\end{subfigure}
+		\caption{Coefficients as functions of time for $N=1$}
+	\end{figure}
+\end{frame}
+\end{comment}
+
+
+\begin{frame}{Coefficients as functions of time}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_4th}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_4th_dr=1}
+		\end{subfigure}
+		\caption{Coefficients as functions of time for $N=2$}
+	\end{figure}
+\end{frame}
+
+\begin{comment}
+\begin{frame}{Coefficients as functions of time}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_6th}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_6th_dr=1}
+		\end{subfigure}
+		\caption{Coefficients as functions of time for $6th$ order}
+	\end{figure}
+\end{frame}
+\end{comment}
+
+\begin{frame}{Coefficients as functions of time}
+	\begin{figure}
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_14th}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\includegraphics[width=\linewidth]{Bilder/elongational_l=1_lsg_ueber_Zeit_14th_dr=1}
+		\end{subfigure}
+		\caption{Coefficients as functions of time for $N=7$}
+	\end{figure}
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Shear flow on S^1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+\subsection{Shear flow on $S^1$ and $S^2$}
+
+\begin{frame}
+	\centering
+	Shear flow on $S^1$
+\end{frame}
+
+\begin{frame}{Shear flow on $S^1$}
+	\scriptsize
+	The externally imposed velocity gradient has the form
+	\begin{figure}
+	\centering
+	\begin{equation}
+	\nabla_{\mathbf{x}} \mathbf{u}=\begin{pmatrix}
+		0 & 1 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{pmatrix}
+	\end{equation}
+	\end{figure}
+
+TODO
+\end{frame}
+
+\subsubsection{Stability analysis}
+\begin{frame}{Shear flow  on $S^1$: Stability analysis}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.4\linewidth}
+			\includegraphics[scale=.42]{Bilder/Stability_analysis_shearflow_N=1_dr0.1}
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.4\linewidth}
+			\centering
+			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_N=1_dr1}
+		\end{minipage}
+		\caption{Eigenvalue of matrix $A$ with $N=1$}
+	\end{figure}
+	
+	\begin{block}{Proposition 2}
+		Sprectal method for $N=1$ is stable with for both small and large $D_r$.
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Shear flow  on $S^1$: Stability analysis}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.4\linewidth}
+			\includegraphics[scale=.42]{Bilder/Stability_analysis_shearflow_N=3_dr0.1}
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.4\linewidth}
+			\centering
+			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_N=3_dr1}
+		\end{minipage}
+		\caption{Eigenvalue of matrix $A$ $N=3$}
+	\end{figure}
+	
+	\begin{block}{Proposition 3}
+		Sprectal method for $N=3$ is stable with for both small and large $D_r$.
+	\end{block}
+\end{frame}
+	Inhalt...
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Shear flow on S^2 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+\begin{frame}
+	\centering
+	Shear flow
+\end{frame}
+
+\begin{frame}{Shear flow}
+	\scriptsize
+	Consider the externally imposed shear flow 
+	\begin{figure}
+		\centering
+		\begin{equation}
+			\mathbf{u}=\begin{pmatrix}
+				u(y) \\
+				0 \\
+				0
+			\end{pmatrix}, \quad \nabla_{\mathbf{x}} \mathbf{u}=\begin{pmatrix}
+				0 & 1 & 0 \\
+				0 & 0 & 0 \\
+				0 & 0 & 0
+			\end{pmatrix}
+		\end{equation}
+	\end{figure}
+
+\begin{figure}
+	\small
+	\begin{minipage}{0.43\textwidth}
+		\includegraphics[scale=0.35]{Bilder/shearflow_12th_dr0.1}
+	\end{minipage}
+	\hfill 
+	\begin{minipage}{0.43\textwidth}
+		\includegraphics[scale=0.35]{Bilder/shearflow_12th_linspace(0,10,500)_dr=1}
+	\end{minipage}
+	\caption{Steady state solution of the Smoluchowski equation approximated at $T = 10$ using different values of $D_r$.}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Shear flow: Stability analysis}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.4\linewidth}
+			\includegraphics[scale=.42]{Bilder/Stability_analysis_shearflow_2nd_dr0.1}
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.4\linewidth}
+			\centering
+			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_2nd_dr1}
+		\end{minipage}
+		\caption{Eigenvalues of matrix $A$ for $N=1$}
+	\end{figure}
+	
+	\begin{block}{Finding}
+		Spectral method for $N=1$ is stable for any $D_r$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Shear flow: Stability analysis}
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.4\linewidth}
+			\includegraphics[scale=.42]{Bilder/Stability_analysis_shearflow_8th_dr0.1}
+		\end{minipage}
+		\hspace{1cm}
+		\begin{minipage}{0.4\linewidth}
+			\centering
+			\includegraphics[scale=0.42]{Bilder/Stability_analysis_shearflow_8th_dr1}
+		\end{minipage}
+		\caption{Eigenvalues of matrix $A$ for $N=4$}
+	\end{figure}
+	
+	\begin{block}{Finding}
+		Spectral method for $N=4$ is stable for any $D_r$.
+	\end{block}
+\end{frame}
+\end{comment}
+
+
+
+
+\begin{frame}{Conclusion}
+		\begin{itemize}
+			\item Derivation of the spectral method is the first step to derive the moment system
+			\item In order for the method to be stable,
+				\begin{itemize}
+					\item for small $D_r$ more approach functions 
+					\item for large $D_r$ smaller time steps 
+				\end{itemize} 
+			are needed
+		\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[scale=.35]{Bilder/Solution_over_time_14th}
+%		\caption{Numerical solution of ODE systems over time with $D_r$ = 1}
+%		\label{fig: Solution of ODE systems over time with $D_r$ = 1}
+%	\end{figure}
+%\end{frame}
+
