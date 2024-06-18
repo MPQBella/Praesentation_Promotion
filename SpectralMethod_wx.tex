@@ -1,4 +1,5 @@
 \section{Spectral Method}
+\begin{comment}
 \begin{frame}
 	\scriptsize
 	Consider
@@ -14,6 +15,7 @@
 \end{align}
     where $P^i_{2n}(\phi, \theta)$ are harmonic polynomial basis functions. 
 \end{frame}
+\end{comment}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,12 +103,41 @@
 		\underbrace{\partial_{t}\left(\sin \theta f\right)}_{[1]} &+ \textcolor{red}{\underbrace{\partial_\theta\left( \sin ^3 \theta \cos \phi f\right)}_{[2]}} - \textcolor{blue}{\underbrace{\partial_x(-\cos\phi \sin\theta \cos\theta f)}_{[3]}} \nonumber \\ 
 		&= \textcolor{red}{\underbrace{D_{r}\left(\partial_\theta \left(\sin \theta \partial_\theta f\right)+ \partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)\right)}_{[4]}}. \label{SmochEq_wx}
 	\end{align}	
-	Ansatz: $f(\phi, \theta, t) = f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{2n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta)$
+  Ansatz for our \textcolor{cyan}{spectral method}
+ \begin{align}
+ 	f(\phi, \theta, t) \approx f_0(t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{i=-2n}^{2n} c^i_{2n}(t) \cdot P^i_{2n}(\phi, \theta), \label{ansatz}
+ \end{align}
+ where $P^i_{2n}(\phi, \theta)$ are harmonic polynomial basis functions. 
 	\vspace{12pt}
 	\begin{itemize}
 		\item Insert ansatz for $f$ in (\ref{SmochEq_wx}) 
 		\item Multiply consecutively with all basis functions used in the ansatz and integrate the resulting equations over $\phi$ and $\theta$
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Method}
+	\scriptsize	
+	Term [4]: Since $\Delta_{S^2} f = \frac{1}{\sin ^2 \theta} \partial_{\phi \phi} f + \frac{1}{\sin \theta} \partial_\theta\left(\sin \theta \partial_\theta f\right)= -n(n+1) \cdot f$
+	
+	Term [1]: The time derivative $(c^k_{2n}(t))'$ is obtained as a result.
+	
+	Term [2]: Inserting the ansatz for $f$ into Term [2], we define:
+	\begin{align}
+		z_0(\phi, \theta) &= \left[\partial_\theta( \sin ^3 \theta \cos \phi (c^0_0 P^0_0))\right], \\
+		z(\phi, \theta) &= \sum_{n = 1}^{N} \, \sum_{k=-2n}^{2n} \left[\partial_\phi (b_\phi (c^k_{2n} P^{k}_{2n})) + \partial_\theta(\sin \theta b_\theta (c^k_{2n} P^{k}_{2n}))\right]. \label{smoch_ansatz}
+	\end{align}
+\end{frame}
+
+
+\begin{frame}
+\scriptsize
+Then do a projection onto all the polynomials $P^{k}_{2n}(\phi, \theta)$ and integrate the result over $S^2$ to determine the coefficients $f_0$ and $c^k_{2n}$
+
+\begin{align*}
+	f_0(t) &=  \int_{0}^{2\pi} \int_{0}^{\pi} z_0(\phi, \theta) \cdot P^{k}_{2n}(\phi, \theta) \, \sin\theta d\theta d\phi. \\
+	c^k_{2n}(t) &= \int_{0}^{2\pi} \int_{0}^{\pi} z(\phi, \theta) \cdot P^{k}_{2n}(\phi, \theta) \, \sin\theta d\theta d\phi.
+\end{align*}
+
 \end{frame}
 
 \begin{frame}{Hierarchy of Moment Equations for Shear Flow 1D}
