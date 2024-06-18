@@ -1,0 +1,64 @@
+\section{Background Knowledge}
+\begin{frame}{Finite Volume Method}
+	\scriptsize
+	Consider spatially one-dimensional linear systems of hyperbolic
+	conservation laws, i.e.
+	\begin{align}
+		q_t(x,t) + f(q(x,t))_x = 0, \label{conservationLaw}
+	\end{align}
+	where $q: \mathbb{R} \times \mathbb{R}^+ \rightarrow \mathbb{R}^m$ represents a vector of $m$ conserved quantities and $f(q(x,t)) := Aq(x,t)$ is the flux function. $A \in \mathbb{R}^{m \times m}$ is hyperbolic. \\
+	\vspace{\baselineskip}
+	The numerical solution is computed as
+    \[
+    Q^n_i \approx \frac{1}{\Delta x} \int_{x_{i-\frac{1}{2}}}^{x_{i+\frac{1}{2}}} q(x,t_n) \, dx = \frac{1}{\Delta x} \int_{C_i} q(x,t_n) \, dx,
+    \]
+	where $C_i := (x_{i-\frac{1}{2}}, x_{i+\frac{1}{2}})$ are the grid cells of length $\Delta x := x_{i+\frac{1}{2}} - x_{i-\frac{1}{2}}$.
+\end{frame}
+
+
+
+\begin{frame}{Wave-Propagation}
+\scriptsize
+Wave-Propagation Algorithm (\cite{zbMATH00994008}) for the equation (\ref{conservationLaw}).
+
+\begin{itemize}
+	\item Based on solving Riemann problems at the grid cell interfaces
+	\item Solution of Riemann problem as set of $m$ waves:
+    \[Q^n_i - Q^n_{i-1} = \sum_{p=1}^{m} \lambda^p_{i-1/2} r^p = \sum_{p=1}^{m+1} W^p_{i-1/2}\]
+    \pause
+	\item Calculate numerical solution $Q^{n+1}_i$ at time $t^{n+1}$:
+	\begin{itemize}
+		\item all right-going waves at left edge $x_{i-\frac{1}{2}}$
+		\[\mathcal{A}^{+} \Delta Q_{i-\frac{1}{2}}=\sum_{p=1}^m\left(\lambda^p\right)^{+} \mathcal{W}_{i-\frac{1}{2}}^{p}\]
+		\item all left-going waves at right edge $x_{i+\frac{1}{2}}$
+		\[\mathcal{A}^{-} \Delta Q_{i+\frac{1}{2}}=\sum_{p=1}^m\left(\lambda^p\right)^{-} \mathcal{W}_{i+\frac{1}{2}}^{p}	\]
+	\end{itemize}
+   \pause
+   \item \textbf{Update formula} for the cell average:
+   \[Q^{n+1}_i = Q^n_i - \frac{\Delta t}{\Delta x} \left( A^+ \Delta Q_{i-1/2} + A^- \Delta Q_{i+1/2} \right)\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving Source Terms using Operator Splitting}
+	\scriptsize
+	Consider
+	\begin{align}
+		q_t + f(q)_x = \varphi(q) \label{conserLawSource}
+	\end{align}
+	
+	Solve this problem (\ref{conserLawSource}) by splitting it into two subproblems of the form:
+  \begin{enumerate}
+  	\item $q_t + f(q)_x = 0$
+  	\item $q_t = \varphi(q)$
+  \end{enumerate}
+  \vspace{2mm}
+   Use finite volume methods for subproblem 1 and an ODE solver for subproblem 2.\\
+  \vspace{4mm}
+  \pause
+  The \textbf{Strang Splitting} (\cite{zbMATH00994008}) approach involves:
+  \begin{enumerate}
+  	\item Solving subproblem 1 over a half time step of length $\Delta t/2$
+  	\item Using the result as initial data for subproblem 2 over a full time step $\Delta t$
+  	\item Finally, solve subproblem 1 again with another half time step of length $\Delta t/2$
+  \end{enumerate}
+\end{frame}

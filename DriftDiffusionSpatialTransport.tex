@@ -1,11 +1,11 @@
 \section{A Simplified Model for Shear Flow}
-\begin{frame}{A Simplified Model for Shear Flow on $S^2$}
+\begin{frame}{Kinetic Smoluchowski equation}
 	\scriptsize
-Consider kinetic Smoluchowski equation
-\begin{align*}
-	\partial_t f+\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f) & +\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)-\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right) \\
-	& =D_r \Delta_n f+\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f
-\end{align*}
+Consider
+\begin{align}
+	\partial_t f+\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f) & +\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)-\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right) \\ \label{kineticSmoch}
+	& =D_r \Delta_n f+\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f \nonumber 
+\end{align}
 	\pause
 \textcolor{blue}{Drift Diffusion term}
 \begin{align*}
@@ -35,11 +35,11 @@ Consider kinetic Smoluchowski equation
 	\vspace{8mm}
 	From (\cite{zbMATH05037679}) it is
 	\begin{align*}
-		b_\phi := a(\phi, \theta) = & -u_{11} \sin \phi \cos \phi \sin \theta-u_{12} \sin ^2 \phi \sin \theta+u_{13} \cos \theta \sin \phi \\
-		& +u_{21} \cos ^2 \phi \sin \theta+u_{22} \sin \phi \cos \phi \sin \theta-u_{23} \cos \theta \cos \phi.\\
-		\sin \theta b_\theta := b(\phi, \theta)= & u_{11} \cos ^2 \phi \sin ^2 \theta \cos \theta+u_{12} \sin \phi \cos \phi \sin ^2 \theta \cos \theta-u_{13} \cos ^2 \theta \cos \phi \sin \theta \\
-		& +u_{21} \cos \phi \sin ^2 \theta \sin \phi \cos \theta+u_{22} \sin ^2 \phi \sin ^2 \theta \cos \theta-u_{23} \sin \phi \cos ^2 \theta \sin \theta \\
-		& +u_{31} \sin ^3 \theta \cos \phi+u_{32} \sin \phi \sin ^3 \theta-u_{33} \cos \theta \sin ^2 \theta.
+		b_\phi := a(\phi, \theta) = & -u_{x} \sin \phi \cos \phi \sin \theta-u_{y} \sin ^2 \phi \sin \theta+u_{z} \cos \theta \sin \phi \\
+		& +v_{x} \cos ^2 \phi \sin \theta+v_{y} \sin \phi \cos \phi \sin \theta-v_{z} \cos \theta \cos \phi.\\
+		\sin \theta b_\theta := b(\phi, \theta)= & u_{x} \cos ^2 \phi \sin ^2 \theta \cos \theta+u_{y} \sin \phi \cos \phi \sin ^2 \theta \cos \theta-u_{z} \cos ^2 \theta \cos \phi \sin \theta \\
+		& +v_{x} \cos \phi \sin ^2 \theta \sin \phi \cos \theta+v_{y} \sin ^2 \phi \sin ^2 \theta \cos \theta-v_{z} \sin \phi \cos ^2 \theta \sin \theta \\
+		& +w_{x} \sin ^3 \theta \cos \phi+w_{y} \sin \phi \sin ^3 \theta-w_{z} \cos \theta \sin ^2 \theta.
 	\end{align*}
 \end{frame}
 
@@ -62,7 +62,7 @@ Consider kinetic Smoluchowski equation
 			1 & 0 & 0
 		\end{array}\right)
 	\end{align*}
-	It follows
+   The \textcolor{blue}{drift diffusion} term on the sphere reduces to
     \begin{align}
 	\partial_{t}\left(\sin \theta f\right)+ \partial_\theta\left( \sin ^3 \theta \cos \phi f\right)
 	=D_{r}\left(\partial_\theta \left(\sin \theta \partial_\theta f\right)+ \partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)\right). \label{smoEq}
@@ -73,11 +73,12 @@ Consider kinetic Smoluchowski equation
 	\scriptsize
 	\textcolor{blue}{Spatial transport term}
 	\begin{align*}
-		&\underbrace{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)}_{[1]} -\underbrace{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)}_{[2]} = \gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f,\\
-		\vspace{1em}
-        &\text{where} \quad \vec{n} :=\left(\begin{array}{c}\sin \theta \cos \phi \\ \sin \theta \sin \phi \\ -\cos \theta\end{array}\right)
-	\end{align*}
+		\underbrace{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)}_{[1]} -\underbrace{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)}_{[2]} = \gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f,
+		\end{align*}
+        where $\quad \vec{n} :=\left(\begin{array}{c}\sin \theta \cos \phi \\ \sin \theta \sin \phi \\ -\cos \theta\end{array}\right)$.
+
 \pause
+\vspace{8mm}
 For the term [1], it follows
 	\begin{align*}
 	\nabla_{\boldsymbol{x}}\cdot(\boldsymbol{u} f) = \partial_z (w(x)f) = 0.
@@ -95,12 +96,12 @@ And for the term [2], we have
 \end{align*}
 With the given velocity field we get
 \begin{align}
-	\nabla_x \cdot ((I+n \otimes n)e_3f) = -\cos\phi \sin\theta \cos\theta \partial_x f. \label{spatialterm_wx}
+	\nabla_x \cdot ((I+n \otimes n)e_3f) = \partial_x (-\cos\phi \sin\theta \cos\theta f). \label{spatialterm_wx}
 \end{align}
 \end{frame}
 \begin{frame}
 \scriptsize
-	Assuming $\gamma = 0$, we have together with equation (\ref{smoEq}) and (\ref{spatialterm_wx})
+	Assuming $\gamma = 0$, equation (\ref{kineticSmoch}) reduces to
 	\begin{align}
 		\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\theta\left( \sin ^3 \theta \cos \phi f\right)} - \textcolor{blue}{\partial_x(-\cos\phi \sin\theta \cos\theta f)}
 		= \textcolor{red}{D_{r}\left(\partial_\theta \left(\sin \theta \partial_\theta f\right)+ \partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)\right)}.
