@@ -1,0 +1,130 @@
+\section{Hierarchy of Moment Equations for Shear Flow}
+\begin{frame}{Hierarchy of Moment Equations for Shear Flow 1D}
+	\scriptsize
+	Consider the simplified shear flow problem
+	\begin{align*}
+	\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\theta\left( \sin ^3 \theta \cos \phi f\right)} - \textcolor{blue}{\partial_x(-\cos\phi \sin\theta \cos\theta f)}
+	= \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
+	\end{align*}
+	For $N=1$ we obtain the following system
+	\begin{align*}
+		\partial_{t} f_0 = &-\textcolor{blue}{\frac{\sqrt{15}}{15}\partial_x c^{-1}_2}\\
+		\partial_{t} c^{-2}_2 = &-\textcolor{blue}{\frac{1}{7} \partial_x c^{-1}_2} -\textcolor{red}{6D_rc^{-2}_2}+ \textcolor{red}{\frac{2}{7}w_xc^{-1}_2} \\
+		\partial_{t} c^{-1}_2 = &-\textcolor{blue}{\frac{\sqrt{15}}{15}\partial_x f_0} - \textcolor{blue}{\frac{1}{7} \partial_x c^{-2}_2} - \textcolor{blue}{\frac{\sqrt{3}}{21}\partial_x c^0_2} \\ &-\textcolor{red}{\frac{5}{7}w_x c^{-2}_2} -\textcolor{red}{6D_r c^{-1}_2} +\textcolor{red}{\frac{3\sqrt{3}}{7}w_x c^0_2} \\
+		\partial_{t} c^0_2 = &-\textcolor{blue}{\frac{\sqrt{3}}{21}\partial_x c^{-1}_2} -\textcolor{red}{\frac{4\sqrt{3}}{7}w_x c^{-1}_2} -\textcolor{red}{6D_r c^0_2} \\
+		\partial_{t} c^1_2 = &-\textcolor{blue}{\frac{1}{7}\partial_x c^2_2} -\textcolor{red}{-6Dr c^{1}_2} -\textcolor{red}{\frac{5}{7}w_x c^{2}_2}\\
+		\partial_{t} c^2_2 = &-\textcolor{blue}{\frac{1}{7}\partial_x c^1_2} +\textcolor{red}{\frac{2}{7}w_x c^{1}_2} -\textcolor{red}{6D_r c^{2}_2}
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	\scriptsize
+	The system of the moment equations for $N=1$ is expressed as follows
+	\begin{align}
+		\partial_t Q(\boldsymbol{x},t) + \textcolor{blue}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{red}{\varphi} (Q(\boldsymbol{x},t)),
+	\end{align}
+	where the matrix $A$ has the form \\
+	\vspace{8pt}
+	\[
+	{
+		\begin{pmatrix}
+			\vspace{8pt}
+			0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
+			\vspace{8pt}
+			0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
+			\vspace{8pt}
+			\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
+			\vspace{8pt}
+			0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
+			\vspace{8pt}
+			0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
+			\vspace{8pt}
+			0 & 0 & 0 & 0 & \frac{1}{7} & 0
+		\end{pmatrix}.
+	}
+	\]
+\end{frame}
+
+\begin{frame}{Hierarchy of Moment Equations for Shear Flow 2D}
+	\scriptsize
+Consider
+\begin{align*}
+&\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\phi \left((- \sin \phi \cos \phi \sin \theta + \cos \theta \sin \phi)f\right)} 
+\\ &+ \textcolor{red}{\partial_\theta\left(( \cos^2 \phi \sin^2 \theta \cos \theta - \cos^2 \theta \cos \phi \sin \theta + \sin^3 \theta \cos \phi - \cos \theta \sin^2 \theta) f\right)}\\
+&-\textcolor{blue}{\partial_x((u+\cos\phi \sin\theta \cos\theta)f) - \partial_z((w+(1+\cos^2\theta))f)}
+= \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
+\end{align*}
+	For $N=1$ the system is given as
+	\begin{equation}
+		\partial_t \left(\begin{array}{c}
+			f_0 \\
+			c_2^{-2} \\
+			c_2^{-1} \\
+			c_2^0 \\
+			c_2^1 \\
+			c_2^2
+		\end{array}\right) + \textcolor{blue}{A} \cdot \partial_x
+		\left(\begin{array}{c}
+			f_0 \\
+			c_2^{-2} \\
+			c_2^{-1} \\
+			c_2^0 \\
+			c_2^1 \\
+			c_2^2
+		\end{array}\right) + \textcolor{blue}{B} \cdot \partial_z \left(\begin{array}{c}
+			f_0 \\
+			c_2^{-2} \\
+			c_2^{-1} \\
+			c_2^0 \\
+			c_2^1 \\
+			c_2^2
+		\end{array}\right) =  \textcolor{red}{\varphi} (Q(\boldsymbol{x},t)),
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\scriptsize
+The matrix $A$ has the form \\
+\vspace{8pt}
+\[
+{
+	A= \begin{pmatrix}
+		\vspace{8pt}
+		u & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
+		\vspace{8pt}
+		0 & u & \frac{1}{7} & 0 & 0 & 0 \\
+		\vspace{8pt}
+		\frac{\sqrt{15}}{15} & \frac{1}{7} & u & \frac{\sqrt{3}}{21} & 0 &  0 \\
+		\vspace{8pt}
+		0 & 0 & \frac{\sqrt{3}}{21} & u & 0 & 0 \\
+		\vspace{8pt}
+		0 & 0 & 0 & 0 & u & \frac{1}{7}\\
+		\vspace{8pt}
+		0 & 0 & 0 & 0 & \frac{1}{7} & u
+	\end{pmatrix}
+}
+\]
+\end{frame}
+
+\begin{frame}
+	\scriptsize
+	and the Matrix $B$ has the form
+\[
+{
+		B= \begin{pmatrix}
+		\vspace{8pt}
+		-\frac{4}{3}+w & 0 & 0 & -\frac{2\sqrt{5}}{15} & 0 & 0 \\
+		\vspace{8pt}
+		0 & -\frac{8}{7}+w & 0 & 0 &0 & 0 \\
+		\vspace{8pt}
+		0 & 0 & -\frac{10}{7}+w & 0 & 0 & 0 \\
+		\vspace{8pt}
+		-\frac{2\sqrt{5}}{15} & 0 & 0 & -\frac{32}{21}+w & 0 & 0 \\
+		\vspace{8pt}
+		0 & 0 & 0 & 0 & -\frac{10}{7}+w & 0\\
+		\vspace{8pt}
+		0 & 0 & 0 & 0 & 0 & -\frac{8}{7}+w
+	\end{pmatrix}
+}.
+\]
+\end{frame}

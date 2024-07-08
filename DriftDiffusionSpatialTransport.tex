@@ -1,0 +1,61 @@
+\section{A Simplified Model for Shear Flow}
+\begin{frame}{A Simplified Model for a Two-Dimensional Flow}
+	\scriptsize
+	For a two-dimensional flow on $S^2$, i.e. $\boldsymbol{n} :=(\sin \theta \cos \phi, \sin \theta \sin \phi, -\cos \theta)^T$ with $\theta \in (0,\pi)$ and $\phi \in (0, 2\pi)$, we define
+	$\boldsymbol{u} = \left( u(x,z, t), 0, w(x,z, t)\right)$.\\
+	\vspace{0.4cm}
+\textcolor{red}{Drift Diffusion term} 
+   \begin{align*}
+	&\partial_{t}\left(\sin \theta f\right)+ \partial_\phi \left((-u_x \sin \phi \cos \phi \sin \theta + u_z \cos \theta \sin \phi)f\right) 
+	\\ &+\partial_\theta\left(( u_x \cos^2 \phi \sin^2 \theta \cos \theta - u_z\cos^2 \theta \cos \phi \sin \theta + w_x\sin^3 \theta \cos \phi - w_z\cos \theta \sin^2 \theta) f\right)\\ &=D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f. 
+   \end{align*}
+\textcolor{blue}{Spatial transport term}
+\begin{align*}
+	\nabla_x \cdot ((I+n \otimes n)e_3f) =  -\partial_x((u+\cos\phi \sin\theta \cos\theta)f) - \partial_z((w+(1+\cos^2\theta))f)
+\end{align*}
+Assuming $\gamma = 0$, we get:
+\begin{align*}
+	&\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\phi \left((-u_x \sin \phi \cos \phi \sin \theta + u_z \cos \theta \sin \phi)f\right)} 
+	\\ &+ \textcolor{red}{\partial_\theta\left(( u_x \cos^2 \phi \sin^2 \theta \cos \theta - u_z\cos^2 \theta \cos \phi \sin \theta + w_x\sin^3 \theta \cos \phi - w_z\cos \theta \sin^2 \theta) f\right)}\\
+	 &-\textcolor{blue}{\partial_x((u+\cos\phi \sin\theta \cos\theta)f) - \partial_z((w+(1+\cos^2\theta))f)}
+	 = \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}. \\
+	 &Re (\partial_{t}u + u \partial_x u + w\partial_z u) + p_x = u_{xx} + u_{zz}  \\
+	 &Re (\partial_{t}w + u \partial_x w + w\partial_z w) + p_z = w_{xx} + w_{zz} - \delta(\bar{\rho}-\rho(x,t)),\\
+	 &u_x + w_z =0
+\end{align*}
+\end{frame}
+
+
+\begin{frame}{A Simplified Model for a One-Dimensional Flow}
+	\scriptsize
+For a one-dimensional flow assume
+	\begin{align*}
+		\boldsymbol{u}(\boldsymbol{x},t) =  \left(\begin{array}{c}
+			0 \\
+			0 \\
+			w(\boldsymbol{x},t)
+		\end{array}\right),
+		\boldsymbol{x} = \left(\begin{array}{l}
+			x \\
+			0 \\
+			0
+		\end{array}\right).
+	\end{align*}
+\textcolor{red}{Drift Diffusion term} 
+    \begin{align*}
+	\partial_{t}\left(\sin \theta f\right)+ \partial_\theta\left(w_x \sin ^3 \theta \cos \phi f\right)
+	=D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f.
+    \end{align*}
+\textcolor{blue}{Spatial transport term}
+   \begin{align*}
+   	\nabla_x \cdot ((I+n \otimes n)e_3f) =\partial_x( -\cos\phi \sin\theta \cos\theta)f.
+   \end{align*}
+ 	Assuming $\gamma = 0$, we have:
+ \begin{align*}
+ 	&\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\theta\left(w_x \sin ^3 \theta \cos \phi f\right)} - \textcolor{blue}{\partial_x(-\cos\phi \sin\theta \cos\theta f)}
+ 	= \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}, \\
+ 	&Re\partial_{x}w = \partial_{xx}w + \delta(\bar{\rho}-\rho(x,t)).
+ \end{align*}
+\end{frame}
+
+
