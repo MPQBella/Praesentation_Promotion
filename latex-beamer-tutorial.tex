@@ -1,0 +1,160 @@
+\documentclass[lightblue, notheorems, xcolor=dvipsnames]{beamer}
+%\usepackage{beamerthemeshadow}
+\usetheme{Madrid}
+\setbeamercolor{author in head/foot}{bg=structure.fg, fg=white} % Hintergrundfarbe wie structure.fg und Textfarbe weiß
+
+\setbeamertemplate{footline}{%
+	\hbox{%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\insertframenumber/\inserttotalframenumber
+		\end{beamercolorbox}%
+	}%
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, amsfonts} %einige hilfreiche Mathe-Pakete
+\setbeamertemplate{theorems}[ams style]
+\usepackage{tabularx, multirow} %fuer Tabellen
+\usepackage{graphicx, tikz} %Grafiken
+\usepackage{setspace} %Paket f\"ur das Formatieren von Quellen unten auf einer Folie
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\usepackage[T1]{fontenc}
+
+% Algorithm
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+
+
+
+% BIlder
+\setbeamertemplate{caption}[numbered]
+\usepackage{subcaption}
+%\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage{tikz}
+
+\usepackage{comment}
+
+% Ausblenden Navigation
+\beamertemplatenavigationsymbolsempty
+
+% definiere Enviroments
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{idea}{Idee}[section]
+\theoremstyle{plain}
+\newtheorem{theo}[defi]{Satz}
+\newtheorem{coroll}[defi]{Korollar}%
+\newtheorem{lem}[defi]{Lemma}%
+\newtheorem{aim}[defi]{Ziel}
+%\newtheorem*{proof}{Beweis}%[theorem]
+
+\theoremstyle{example}
+\newtheorem{remark}[defi]{Bemerkung}%
+\newtheorem{examp}[defi]{Beispiel}%
+\newtheorem*{lsg}{Lösung}
+
+
+\DeclareMathOperator*{\argmax}{argmax}
+
+
+\iffalse
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+    \insertshorttitle\hfill%
+    \insertframenumber\,/\,\inserttotalframenumber}
+\fi
+
+
+
+\SetKwRepeat{Do}{do}{while}%
+\begin{document}
+   %\maketitle  %erstellt Titelseite mit oben stehenden Informationen
+  % optional: mit 
+  \author{Bella My Phuong Quynh Duong}
+  \date{September 23, 2024} %Datum des Vortrags eintragen
+  \institute{Heinrich-Heine University D\"usseldorf}
+  \title{Numerical Simulations of a Coupled Moment System for Modeling Sedimentation in Suspensions of Rod-Like Particles}
+  
+  \begin{frame}
+  	\titlepage
+  	\begin{figure}[htpb]
+  		\begin{center}
+  			\includegraphics[width=0.2\textwidth]{logo.png}
+  		\end{center}
+  	\end{figure}
+  \end{frame}
+\begin{frame}
+   \frametitle{Table of Contents}
+\tableofcontents %dieser Befehl erzeugt das Inhaltsverzeichnis
+\end{frame}
+
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>
+		\frametitle{Overview}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\include{Kapitel/Introduction}
+\include{Kapitel/DriftDiffusionSpatialTransport}
+\include{Kapitel/Moment_Eq}
+\include{Kapitel/Numerical_Simulations}
+\include{Kapitel/Conclusion}
+
+\begin{frame}{Appendix}
+		\begin{table}[H]
+			\scriptsize
+			\begin{tabular}{|c|c|}
+				\hline
+				0th order	& 2nd order \\
+				\hline
+				& $P^{-2}_2 = \sqrt{\frac{15}{16\pi}}\sin^2(\theta)\cos(2\phi)$ \\
+				& $P^{-1}_2 = \sqrt{\frac{15}{4\pi}}\sin(\theta)\cos(\theta)\cos(\phi)$ \\
+				$P^0_0 = \sqrt{\frac{1}{4\pi}} \cdot 1$	& $P^0_2 = \sqrt{\frac{45}{16\pi}}\cos^2(\theta) - \frac{1}{3}$  \\
+				&  $P^1_2 = \sqrt{\frac{15}{4\pi}}\sin(\theta)\cos(\theta)\sin(\phi)$\\
+				&  $P^2_2 = \sqrt{\frac{15}{16\pi}}\sin^2(\theta)\sin(2\phi)$\\
+				\hline
+			\end{tabular}
+			\caption{Normalized harmonic polynomial basis functions}
+		\end{table}
+\end{frame}
+
+
+\begin{comment}
+\begin{frame}
+	\centering
+	Thank you for listening!
+\end{frame}
+\end{comment}
+
+\AtBeginSection[]
+%{
+% \begin{frame}<beamer>
+% \frametitle{Table of Contents}
+% \tableofcontents[currentsection]
+% \end{frame}
+%}
+
+
+
+%Ende
+%\begin{frame}{Ende}
+%	\centering
+%	Thank you for listening!
+%\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Literatur}
+  \nocite{*} %es werden auch Quellen aufgefuehrt, die nicht in den Folien zitiert sind.
+  \bibliography{Bibliothek}
+  \bibliographystyle{abbrv}
+\end{frame}
+
+
+\end{document}

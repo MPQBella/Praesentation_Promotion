@@ -3,14 +3,14 @@
 	\scriptsize
 Consider
 	\begin{align}
-		\partial_t Q(x,t) + \textcolor{blue}{A}\partial_x Q(x,t) = \textcolor{red}{\varphi} (Q(x,t)), \label{conservationlaws}
+		\partial_t Q(x,t) + \textcolor{red}{A}\partial_x Q(x,t) = \textcolor{blue}{\varphi} (Q(x,t)), \label{conservationlaws}
 	\end{align}
-	where $Q(x,t) = (f_0, c^{-2}_2, c^{-1}_2, ..., c^2_2)$ is. \\
+	where $Q(x,t) = (c^0_0, c^{-2}_2, \ldots, c^{2N}_{2N})$ is. \\
 	\vspace{0.5cm}
 	Solve this problem by splitting it into two subproblems of the form
 	\begin{enumerate}
-		\item $\partial_t Q(x,t)  = \varphi (Q(x,t))$
-		\item $\partial_t Q(x,t) + A Q_x=0$.
+		\item $\partial_t Q(x,t)  = \textcolor{blue}{\varphi} (Q(x,t))$
+		\item $\partial_t Q(x,t) + \textcolor{red}{A} Q_x=0$.
 	\end{enumerate}
 \end{frame}
 
@@ -26,14 +26,14 @@ Consider
 				c_2^0 \\
 				c_2^1 \\
 				c_2^2
-			\end{array}\right)  = \begin{pmatrix}
+			\end{array}\right)  = \textcolor{blue}{\begin{pmatrix}
 				0 & 0 & 0 & 0 & 0 & 0 \\
 				0 & -6D_r & \frac{2}{7}w_x & 0 & 0 & 0 \\
 				-\frac{\sqrt{15}}{5}w_x & -\frac{5}{7}w_x & -6D_r & \frac{3\sqrt{3}}{7}w_x & 0 & 0 \\
 				0 & 0 & -\frac{4\sqrt{3}}{7}w_x & -6D_r & 0 & 0 \\
 				0 & 0 & 0 & 0 & -6D_r & -\frac{5}{7} w_x\\
 				0 & 0 & 0 & 0 & \frac{2}{7}w_x & -6D_r
-			\end{pmatrix} \cdot
+			\end{pmatrix}} \cdot
 			\left(\begin{array}{c}
 				0 \\
 				c^{-2}_2(t) \\
@@ -43,7 +43,7 @@ Consider
 				c_2^2(t)
 			\end{array}\right).
 		\end{equation*}
-		with Runge-Kutta 4th order method .
+		with an implizit method.
 		\item Solve the advection equation
 		$$
 		\partial_t \left(\begin{array}{c}
@@ -53,14 +53,14 @@ Consider
 			c_2^0 \\
 			c_2^1 \\
 			c_2^2
-		\end{array}\right) + \begin{pmatrix}
+		\end{array}\right) + \textcolor{red}{\begin{pmatrix}
 			0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
 			0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
 			\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
 			0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
 			0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
 			0 & 0 & 0 & 0 & \frac{1}{7} & 0
-		\end{pmatrix} \partial_x \left(\begin{array}{c}
+		\end{pmatrix}} \partial_x \left(\begin{array}{c}
 			f_0 \\
 			c_2^{-2} \\
 			c_2^{-1} \\
@@ -73,6 +73,7 @@ Consider
 	\end{enumerate}
 \end{frame}
 
+\begin{comment}
 \begin{frame}{Macroscopic Transport}
 	\scriptsize
 	Consider a Riemann Problem for externally imposed shear flow with $wx/D_r = 0.5$ for the left state and $wx/D_r = 1$ for the right state.
@@ -104,7 +105,9 @@ Consider
 		\caption{Solution of the Riemann problem for $f_0$ at the time $t = 1.875$ using the moment system for different $N$ (blue curve) in comparison with $N = 6$ (red curve).}
 	\end{figure}
 \end{frame}
+\end{comment}
 
+\begin{comment}
 \begin{frame}
 	\scriptsize
 	\textbf{Setting:}\\
@@ -129,18 +132,191 @@ Consider
 		\caption{Solution of the problem (\ref{conservationlaws}) for $f_0$ at the time $t = 3$ using the moment system for different $N$ (blue curve) in comparison with $N = 6$ (red curve).}
 	\end{figure}
 \end{frame}
+\end{comment}
 
 \begin{frame}{Simulation of One-Dimensional Coupled Shear Flow Problem}
 \scriptsize
 Consider the coupled moment system
-\begin{align*}
-&\partial_t Q(\boldsymbol{x},t) + A\partial_x Q(\boldsymbol{x},t) =\varphi (Q(\boldsymbol{x},t)) \\
-	&Re\partial_{x}w = \partial_{xx}w + \delta(\bar{\rho}-\rho(x,t)).
-\end{align*}
+\begin{equation}
+	\begin{split}
+		&\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)) \\
+		&Re\partial_{x}w = \partial_{xx}w + \delta(\bar{\rho}-\rho(x,t)).
+	\end{split}
+	\label{coupledsys_1d}
+\end{equation}
 on the interval $[0, 100]$ with periodic boundary conditions and initial data
 \begin{align*}
-	&\rho(x,0) = exp(-10(x-50)^2), \\
-	&w(x,0) = 1 ,\\
+	&c^0_0(x,0) = exp(-(x-50)^2)/(2 \cdot \sqrt{\pi}), \\
+	&w(x,0) = 0 ,\\
 	&D_r = 0.01, \delta = 1
 \end{align*}
+\end{frame}
+
+
+\begin{frame}{Accuracy Study}
+\scriptsize
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline 
+		& \multicolumn{2}{|c|}{$\mathrm{N}=1$} & \multicolumn{2}{|c|}{$\mathrm{N}=2$} & \multicolumn{2}{|c|}{$\mathrm{N}=3$} \\
+		\hline 
+		grid & $L1$-Error & EOC  & $L1$-Error & EOC  & $L1$-Error & EOC  \\
+		\hline
+		256 & $2.7197  \cdot 10^{-1}$ & & $1.9174\cdot 10^{-2}$&&$1.6585 \cdot 10^{-1}$&\\
+		\hline
+		512 & $1.0421 \cdot 10^{-1}$ &$1.38$ & $6.4197 \cdot 10^{-2}$&$1.57$&$ 5.4157 \cdot 10^{-2}$&$1.61$\\
+		\hline 
+		1024  &$3.0275 \cdot 10^{-2}$&$1.78$& $1.7984 \cdot 10^{-2}$&$1.83$&$ 1.5270 \cdot 10^{-2}$& $1.82$\\
+		\hline
+		2048 & $ 7.6037 \cdot 10^{-3}$ &$1.99$& $4.4721 \cdot 10^{-3}$&$2.0$&$3.6918 \cdot 10^{-3}$&$2.04$\\
+		\hline
+	\end{tabular}
+	\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=1$. The reference solution, computed on a grid with $8192$ cells, uses the same number of moment equations as the coarse solution.  In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+	\label{tab:Dr=1_error_N=1,2,3vsN=1,2,3}
+\end{table}
+\end{frame}
+
+%%%%%%%%%%%%%% Case 2, Dr=0.01 %%%%%%%%%%%%%%%%%
+
+\begin{frame}{Accuracy Study}
+	\scriptsize
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline 
+			& \multicolumn{2}{|c|}{$\mathrm{N}=1$} & \multicolumn{2}{|c|}{$\mathrm{N}=2$} & \multicolumn{2}{|c|}{$\mathrm{N}=3$}  \\
+			\hline 
+			grid & $L1$-Error & EOC  & $L1$-Error & EOC  & $L1$-Error & EOC\\
+			\hline
+			256  & $ 1.1624 \cdot 10^{-2}$ & & $ 2.6060\cdot 10^{-3}$&&$ 6.0421 \cdot 10^{-3}$& \\
+			\hline
+			512 & $ 1.2524 \cdot 10^{-2}$ & $-0.10$& $1.1655  \cdot 10^{-3}$&$1.16$& $ 1.1655 \cdot 10^{-3}$& $2.37$ \\
+			\hline 
+			1024  &$ 1.3168 \cdot 10^{-2}$&$-0.07$& $3.1649 \cdot 10^{-3}$& $-1.44$ & $8.0673\cdot 10^{-4}$&$0.53$\\
+			\hline
+			2048 & $ 1.3310 \cdot 10^{-2}$ &$-0.01$& $  3.4125 \cdot 10^{-3}$&$-0.10$& $ 5.5722 \cdot 10^{-4}$&$0.53$\\
+			\hline
+		\end{tabular}
+		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\label{tab:Dr=0.01_error_N=1,2,3vsN=6}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}{Accuracy Study}
+	\scriptsize
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline 
+			& \multicolumn{2}{|c|}{$\mathrm{N}=4$} & \multicolumn{2}{|c|}{$\mathrm{N}=5$}   \\
+			\hline 
+			grid & $L1$-Error & EOC  & $L1$-Error & EOC  \\
+			\hline
+			256  & $5.9343\cdot 10^{-3}$ & & $ 6.2261\cdot 10^{-3}$& \\
+			\hline
+			512 & $ 2.1285 \cdot 10^{-3}$ & $1.47$ & $2.3204  \cdot 10^{-3}$&$1.42$ \\
+			\hline 
+			1024  &$ 6.1323\cdot 10^{-4}$&$1.79$& $ 6.8919 \cdot 10^{-4}$& $1.75$ \\
+			\hline
+			2048 & $ 2.4303 \cdot 10^{-4}$ &$1.33$& $ 1.7118 \cdot 10^{-4}$&$2.0$\\
+			\hline
+		\end{tabular}
+		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\label{tab:Dr=0.01_error_N=4,5vsN=6}
+	\end{table}
+\end{frame}
+
+
+%%%%%%%%% Case 2, Dr = 0.05 %%%%%%%%%%%%%%%
+
+\begin{frame}{Accuracy Study}
+	\scriptsize
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline 
+			& \multicolumn{2}{|c|}{$\mathrm{N}=1$} & \multicolumn{2}{|c|}{$\mathrm{N}=2$} & \multicolumn{2}{|c|}{$\mathrm{N}=3$}  \\
+			\hline 
+			grid & $L1$-Error & EOC  & $L1$-Error & EOC  & $L1$-Error & EOC\\
+			\hline
+			256  & $ 1.4093 \cdot 10^{-2}$ & & $ 8.4036 \cdot 10^{-3}$&&$6.6520  \cdot 10^{-3}$& \\
+			\hline
+			512 & $3.4409 \cdot 10^{-3}$ & $2.03$& $ 2.0240  \cdot 10^{-3}$&$2.05$& $ 2.0034 \cdot 10^{-3}$&$1.73$ \\
+			\hline 
+			1024  &$ 1.5602\cdot 10^{-3}$&$1.14$& $ 4.3070 \cdot 10^{-4}$&$2.23$ & $5.4486\cdot 10^{-4}$&$1.87$\\
+			\hline
+			2048 & $1.4673\cdot 10^{-3}$ &$0.08$& $ 1.2731 \cdot 10^{-4}$&$1.75$& $ 1.3623 \cdot 10^{-4}$&$1.99$\\
+			\hline
+		\end{tabular}
+		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.05$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\label{tab:Dr=0.05_error_N=1,2,3vsN=6}
+	\end{table}
+\end{frame}
+
+
+%%%%%%%%%%%%%%% Case 2, Dr=1 %%%%%%%%%%%%%%
+
+\begin{frame}{Accuracy Study}
+	\scriptsize
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline 
+			& \multicolumn{2}{|c|}{$\mathrm{N}=1$} & \multicolumn{2}{|c|}{$\mathrm{N}=2$} & \multicolumn{2}{|c|}{$\mathrm{N}=3$}  \\
+			\hline 
+			grid & $L1$-Error & EOC  & $L1$-Error & EOC  & $L1$-Error & EOC\\
+			\hline
+			256  & $  2.7228  \cdot 10^{-1}$ & & $ 1.9183 \cdot 10^{-1}$&&$1.6589 \cdot 10^{-1}$& \\
+			\hline
+			512 & $1.0452 \cdot 10^{-1}$ &$1.38$ & $ 3.1259 \cdot 10^{-2}$&$2.61$& $ 5.4197 \cdot 10^{-2}$&$1.61$\\
+			\hline 
+			1024  &$3.0596 \cdot 10^{-2}$&$1.77$& $1.8077 \cdot 10^{-2}$&$0.79$ & $1.5310\cdot 10^{-2}$&$1.82$\\
+			\hline
+			2048 & $ 7.9252\cdot 10^{-3}$ &$1.94$& $ 4.5655\cdot 10^{-3}$&$1.98$& $3.7315  \cdot 10^{-3}$&$2.03$\\
+			\hline
+		\end{tabular}
+		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=1$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\label{tab:Dr=1_error_N=1,2,3vsN=6}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}{Cluster Formation}
+	\scriptsize
+	Let 
+	\begin{align*}
+		c^0_0 (x,0) = (1+(1\cdot10^{-4} \cdot \eta(x)-5\cdot10^{-5}))/(2\sqrt{\pi}),
+	\end{align*}
+	where $\eta(x)$ random values is.
+	
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{Bilder_wx/ClusterFormation/N=2vsN=6_Dr=0.05_mx=8192}
+		\end{minipage}
+		\caption{Approximation of the coupled problem for shear flow (\ref{coupledsys_1d}) with $D_r =0.05$. The plot shows the density at time $t=30$ for $N = 1$ and $N = 2$, represented by the blue line. The black line represents a reference solution calculated with $N = 6$ moment equations.}
+		\label{ClusterFormation}
+	\end{figure}
+	The Figure (\ref{ClusterFormation}) shows that using $N = 1$ moment equations, compared to the reference solution with $N = 6$, already provides a good approximation of cluster formation. The numerical solution for $N=2$ aligns very well with the reference solution.
+\end{frame}
+
+\begin{frame}
+		\begin{figure}
+		\centering
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{Bilder_wx/ClusterFormation/cluster_N=1vsN=6_Dr=1_mx=8192}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.46\textwidth}
+			\includegraphics[width=\textwidth]{Bilder_wx/ClusterFormation/cluster_N=2vsN=6_Dr=1_mx=8192}
+		\end{minipage}
+		\caption{Approximation of the coupled problem for shear flow (\ref{coupledsys_1d}) with $D_r =1$. The plot shows the density at time $t=30$ for $N = 1$ and $N = 2$, represented by the blue line. The black line represents a reference solution calculated with $N = 6$ moment equations.}
+		\label{ClusterFormation_Dr=1}
+	\end{figure}
 \end{frame}

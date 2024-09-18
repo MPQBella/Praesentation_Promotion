@@ -3,31 +3,27 @@
 	\scriptsize
 	Consider the simplified shear flow problem
 	\begin{align*}
-	\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\theta\left( \sin ^3 \theta \cos \phi f\right)} - \textcolor{blue}{\partial_x(-\cos\phi \sin\theta \cos\theta f)}
-	= \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
+	\partial_{t}\left(\sin \theta f\right)+ \textcolor{blue}{\partial_\theta\left( w_x\sin ^3 \theta \cos \phi f\right)} - \textcolor{red}{\partial_x(-\cos\phi  \cos\theta \sin\theta^2 f)}
+	= \textcolor{blue}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
 	\end{align*}
-	For $N=1$ we obtain the following system
-	\begin{align*}
-		\partial_{t} f_0 = &-\textcolor{blue}{\frac{\sqrt{15}}{15}\partial_x c^{-1}_2}\\
-		\partial_{t} c^{-2}_2 = &-\textcolor{blue}{\frac{1}{7} \partial_x c^{-1}_2} -\textcolor{red}{6D_rc^{-2}_2}+ \textcolor{red}{\frac{2}{7}w_xc^{-1}_2} \\
-		\partial_{t} c^{-1}_2 = &-\textcolor{blue}{\frac{\sqrt{15}}{15}\partial_x f_0} - \textcolor{blue}{\frac{1}{7} \partial_x c^{-2}_2} - \textcolor{blue}{\frac{\sqrt{3}}{21}\partial_x c^0_2} \\ &-\textcolor{red}{\frac{5}{7}w_x c^{-2}_2} -\textcolor{red}{6D_r c^{-1}_2} +\textcolor{red}{\frac{3\sqrt{3}}{7}w_x c^0_2} \\
-		\partial_{t} c^0_2 = &-\textcolor{blue}{\frac{\sqrt{3}}{21}\partial_x c^{-1}_2} -\textcolor{red}{\frac{4\sqrt{3}}{7}w_x c^{-1}_2} -\textcolor{red}{6D_r c^0_2} \\
-		\partial_{t} c^1_2 = &-\textcolor{blue}{\frac{1}{7}\partial_x c^2_2} -\textcolor{red}{-6Dr c^{1}_2} -\textcolor{red}{\frac{5}{7}w_x c^{2}_2}\\
-		\partial_{t} c^2_2 = &-\textcolor{blue}{\frac{1}{7}\partial_x c^1_2} +\textcolor{red}{\frac{2}{7}w_x c^{1}_2} -\textcolor{red}{6D_r c^{2}_2}
-	\end{align*}
-\end{frame}
-
-\begin{frame}
-	\scriptsize
-	The system of the moment equations for $N=1$ is expressed as follows
-	\begin{align}
-		\partial_t Q(\boldsymbol{x},t) + \textcolor{blue}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{red}{\varphi} (Q(\boldsymbol{x},t)),
-	\end{align}
-	where the matrix $A$ has the form \\
-	\vspace{8pt}
-	\[
-	{
-		\begin{pmatrix}
+\pause
+	The system of the moment equations is expressed as follows
+\begin{align}
+	\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)),
+\end{align}
+where $Q(x,t)=(c^0_0, c^{-2}_2, \ldots, c^{2N}_{2N})$ represents the vector of the moments. \\
+\vspace{1mm}
+\pause
+For $N=1$ we obtain 
+\begin{equation}
+	\partial_t \left(\begin{array}{c}
+		f_0 \\
+		c_2^{-2} \\
+		c_2^{-1} \\
+		c_2^0 \\
+		c_2^1 \\
+		c_2^2
+	\end{array}\right) + \textcolor{red}{\begin{pmatrix}
 			\vspace{8pt}
 			0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
 			\vspace{8pt}
@@ -40,19 +36,75 @@
 			0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
 			\vspace{8pt}
 			0 & 0 & 0 & 0 & \frac{1}{7} & 0
-		\end{pmatrix}.
-	}
-	\]
+	\end{pmatrix}} \cdot \partial_x
+	\left(\begin{array}{c}
+		f_0 \\
+		c_2^{-2} \\
+		c_2^{-1} \\
+		c_2^0 \\
+		c_2^1 \\
+		c_2^2
+	\end{array}\right)  =  \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)).
+\end{equation}
 \end{frame}
+
+	\begin{comment}
+	\begin{align*}
+		\partial_{t} f_0 = &-\textcolor{red}{\frac{\sqrt{15}}{15}\partial_x c^{-1}_2}\\
+		\partial_{t} c^{-2}_2 = &-\textcolor{red}{\frac{1}{7} \partial_x c^{-1}_2} -\textcolor{blue}{6D_rc^{-2}_2}+ \textcolor{blue}{\frac{2}{7}w_xc^{-1}_2} \\
+		\partial_{t} c^{-1}_2 = &-\textcolor{red}{\frac{\sqrt{15}}{15}\partial_x f_0} - \textcolor{red}{\frac{1}{7} \partial_x c^{-2}_2} - \textcolor{red}{\frac{\sqrt{3}}{21}\partial_x c^0_2} \\ &-\textcolor{blue}{\frac{5}{7}w_x c^{-2}_2} -\textcolor{blue}{6D_r c^{-1}_2} +\textcolor{blue}{\frac{3\sqrt{3}}{7}w_x c^0_2} \\
+		\partial_{t} c^0_2 = &-\textcolor{red}{\frac{\sqrt{3}}{21}\partial_x c^{-1}_2} -\textcolor{blue}{\frac{4\sqrt{3}}{7}w_x c^{-1}_2} -\textcolor{blue}{6D_r c^0_2} \\
+		\partial_{t} c^1_2 = &-\textcolor{red}{\frac{1}{7}\partial_x c^2_2} -\textcolor{blue}{-6D_r c^{1}_2} -\textcolor{blue}{\frac{5}{7}w_x c^{2}_2}\\
+		\partial_{t} c^2_2 = &-\textcolor{red}{\frac{1}{7}\partial_x c^1_2} +\textcolor{blue}{\frac{2}{7}w_x c^{1}_2} -\textcolor{blue}{6D_r c^{2}_2}
+	\end{align*}
+\end{comment}
+
+\begin{comment}
+\begin{frame}
+	\scriptsize
+For $N=1$ we obtain 
+\begin{equation}
+	\partial_t \left(\begin{array}{c}
+		f_0 \\
+		c_2^{-2} \\
+		c_2^{-1} \\
+		c_2^0 \\
+		c_2^1 \\
+		c_2^2
+	\end{array}\right) + \textcolor{red}{\begin{pmatrix}
+	\vspace{8pt}
+	0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
+	\vspace{8pt}
+	0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
+	\vspace{8pt}
+	\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
+	\vspace{8pt}
+	0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
+	\vspace{8pt}
+	0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
+	\vspace{8pt}
+	0 & 0 & 0 & 0 & \frac{1}{7} & 0
+\end{pmatrix}} \cdot \partial_x
+	\left(\begin{array}{c}
+		f_0 \\
+		c_2^{-2} \\
+		c_2^{-1} \\
+		c_2^0 \\
+		c_2^1 \\
+		c_2^2
+	\end{array}\right)  =  \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)).
+\end{equation}
+\end{frame}
+\end{comment}
+
 
 \begin{frame}{Hierarchy of Moment Equations for Shear Flow 2D}
 	\scriptsize
 Consider
 \begin{align*}
-&\partial_{t}\left(\sin \theta f\right)+ \textcolor{red}{\partial_\phi \left((- \sin \phi \cos \phi \sin \theta + \cos \theta \sin \phi)f\right)} 
-\\ &+ \textcolor{red}{\partial_\theta\left(( \cos^2 \phi \sin^2 \theta \cos \theta - \cos^2 \theta \cos \phi \sin \theta + \sin^3 \theta \cos \phi - \cos \theta \sin^2 \theta) f\right)}\\
-&-\textcolor{blue}{\partial_x((u+\cos\phi \sin\theta \cos\theta)f) - \partial_z((w+(1+\cos^2\theta))f)}
-= \textcolor{red}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
+	&\partial_{t}\left(\sin \theta f\right)+ \textcolor{blue}{\partial_\theta\left(( w_x \sin^3 \theta \cos \phi + w_y\sin \phi \sin^3 \theta) f\right)}\\
+&+\textcolor{red}{\partial_x(\cos\phi \sin\theta \cos\theta f)} + \textcolor{red}{\partial_y(\sin \phi \sin \theta \cos \theta f )}
+= \textcolor{blue}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
 \end{align*}
 	For $N=1$ the system is given as
 	\begin{equation}
@@ -63,7 +115,7 @@ Consider
 			c_2^0 \\
 			c_2^1 \\
 			c_2^2
-		\end{array}\right) + \textcolor{blue}{A} \cdot \partial_x
+		\end{array}\right) + \textcolor{red}{A} \cdot \partial_x
 		\left(\begin{array}{c}
 			f_0 \\
 			c_2^{-2} \\
@@ -71,24 +123,26 @@ Consider
 			c_2^0 \\
 			c_2^1 \\
 			c_2^2
-		\end{array}\right) + \textcolor{blue}{B} \cdot \partial_z \left(\begin{array}{c}
+		\end{array}\right) + \textcolor{red}{B} \cdot \partial_z \left(\begin{array}{c}
 			f_0 \\
 			c_2^{-2} \\
 			c_2^{-1} \\
 			c_2^0 \\
 			c_2^1 \\
 			c_2^2
-		\end{array}\right) =  \textcolor{red}{\varphi} (Q(\boldsymbol{x},t)),
+		\end{array}\right) =  \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)),
 	\end{equation}
 \end{frame}
 
 \begin{frame}
 	\scriptsize
-The matrix $A$ has the form \\
+The matrix $\textcolor{red}{A}$ and the Matrix $\textcolor{red}{B}$ has the form \\
 \vspace{8pt}
+
 \[
-{
-	A= \begin{pmatrix}
+\begin{minipage}{0.45\linewidth}
+	\[
+	A = \begin{pmatrix}
 		\vspace{8pt}
 		u & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
 		\vspace{8pt}
@@ -98,33 +152,30 @@ The matrix $A$ has the form \\
 		\vspace{8pt}
 		0 & 0 & \frac{\sqrt{3}}{21} & u & 0 & 0 \\
 		\vspace{8pt}
-		0 & 0 & 0 & 0 & u & \frac{1}{7}\\
+		0 & 0 & 0 & 0 & u & \frac{1}{7} \\
 		\vspace{8pt}
 		0 & 0 & 0 & 0 & \frac{1}{7} & u
+	\end{pmatrix},
+	\]
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+	\[
+	B = \begin{pmatrix}
+		\vspace{8pt}
+		v & 0 & 0 & 0 & \frac{\sqrt{15}}{15} & 0 \\
+		\vspace{8pt}
+		0 & v & 0 & 0 & -\frac{1}{7} & 0 \\
+		\vspace{8pt}
+		0 & 0 & v & 0 & 0 &  \frac{1}{7} \\
+		\vspace{8pt}
+		0 & 0 & 0 & v & \frac{\sqrt{3}}{21} & 0 \\
+		\vspace{8pt}
+		\frac{\sqrt{15}}{15} & -\frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & v & 0 \\
+		\vspace{8pt}
+		0 & 0 & \frac{1}{7} & 0 & 0 & v
 	\end{pmatrix}
-}
+	\]
+\end{minipage}
 \]
 \end{frame}
 
-\begin{frame}
-	\scriptsize
-	and the Matrix $B$ has the form
-\[
-{
-		B= \begin{pmatrix}
-		\vspace{8pt}
-		-\frac{4}{3}+w & 0 & 0 & -\frac{2\sqrt{5}}{15} & 0 & 0 \\
-		\vspace{8pt}
-		0 & -\frac{8}{7}+w & 0 & 0 &0 & 0 \\
-		\vspace{8pt}
-		0 & 0 & -\frac{10}{7}+w & 0 & 0 & 0 \\
-		\vspace{8pt}
-		-\frac{2\sqrt{5}}{15} & 0 & 0 & -\frac{32}{21}+w & 0 & 0 \\
-		\vspace{8pt}
-		0 & 0 & 0 & 0 & -\frac{10}{7}+w & 0\\
-		\vspace{8pt}
-		0 & 0 & 0 & 0 & 0 & -\frac{8}{7}+w
-	\end{pmatrix}
-}.
-\]
-\end{frame}
