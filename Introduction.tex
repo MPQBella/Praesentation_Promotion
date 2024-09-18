@@ -1,9 +1,9 @@
-\section{Recap}
+\section{Motivation}
 \begin{frame}{Mathematical Model for the Sedimentation of Rod-Like Particles}
 	\scriptsize
 \text{Coupling of a kinetic Smoluchowski equation with Navier-Stokes equation}
 \begin{align*}
-	\textcolor{blue}{\partial_t f}+\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f) & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}-\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right) \\
+	\textcolor{blue}{\partial_t f}+ \textcolor{red}{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)} & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}- \textcolor{red}{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)} \\
 	& =\textcolor{blue}{D_r \Delta_n f}+\gamma \nabla_{\boldsymbol{x}} \notag \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f, \\
 	\sigma & =\int_{S^{d-1}}(\text{d} \; \boldsymbol{n} \otimes \boldsymbol{n}-I) f d \boldsymbol{n},  \\
 	\operatorname{Re}\left(\partial_t \boldsymbol{u}+\left(\boldsymbol{u} \cdot \nabla_{\boldsymbol{x}}\right) \boldsymbol{u}\right) & =\Delta_{\boldsymbol{x}} \boldsymbol{u}-\nabla_{\boldsymbol{x}} p+\delta \gamma \nabla_{\boldsymbol{x}} \cdot \sigma-\delta \int_{S^{d-1}} f d \boldsymbol{n} \, e_3, \\
@@ -16,7 +16,22 @@ where $f = f(\boldsymbol{x}, t, \boldsymbol{n}), \boldsymbol{x} \in \mathbb{R}^3
 \end{frame}
 
 
+\begin{frame}{Goal: Construction of Lower-Dimensional Mathematical Models}
+	\scriptsize
+	\begin{block}{General about the project}
+		\begin{itemize}
+			\item <1->  Study the coupled system on $S^2$, which is a five dimensional problem (plus time)
+			\item <2->  Transform this high dimensional system into a lower dimensional system of moment equations
+		\end{itemize}
+	\end{block}
+	\begin{block}{First step}
+		\begin{itemize}
+			\item <3-> Derive hierarchies of moment equations for the coupled kinetic-fluid model
+		\end{itemize}
+	\end{block}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 \begin{frame}{Spectral method}
 	\scriptsize
 	Consider the drift-diffusion equation
@@ -96,5 +111,6 @@ where $P^k_{2n}(\phi, \theta)$ are harmonic polynomial basis functions.  %, i.e.
 		}
 	\end{multline*}
 \end{frame}
+\end{comment}
 
 

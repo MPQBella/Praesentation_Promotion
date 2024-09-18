@@ -1,19 +1,90 @@
 \section{Numerical Simulations}
-\begin{frame}{Example: One-Dimensional Shear Flow}
-	\scriptsize
+
+\begin{frame}{Approximation of Coupled Shear Flow Problem}
+\scriptsize
 Consider
-	\begin{align}
-		\partial_t Q(x,t) + \textcolor{red}{A}\partial_x Q(x,t) = \textcolor{blue}{\varphi} (Q(x,t)), \label{conservationlaws}
-	\end{align}
-	where $Q(x,t) = (c^0_0, c^{-2}_2, \ldots, c^{2N}_{2N})$ is. \\
-	\vspace{0.5cm}
-	Solve this problem by splitting it into two subproblems of the form
-	\begin{enumerate}
-		\item $\partial_t Q(x,t)  = \textcolor{blue}{\varphi} (Q(x,t))$
-		\item $\partial_t Q(x,t) + \textcolor{red}{A} Q_x=0$.
-	\end{enumerate}
+\begin{equation}
+	\begin{split}
+		&\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)) \\
+		&\partial_{t}w = \partial_{xx}w + \delta(\bar{\rho}-2\sqrt{\pi} c^0_0(x,t)).
+	\end{split}
+	\label{coupledsys_1d}
+\end{equation}
+\pause
+	\begin{algorithm}[H]
+		\caption{\scriptsize  Splitting algorithm for solving the coupled shear flow problem (\cite{dahm2024numericaldiscretisationhyperbolicsystems}):}
+		\SetAlgoNlRelativeSize{0} % Stellt sicher, dass die Zeilennummern versteckt sind
+        \scriptsize
+		1. $\frac{1}{2} \Delta t$ step on $\partial_t Q(x, t) = \varphi(Q(x, t))$\\
+		2. $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} - 2\sqrt{\pi} c^0_0(x,t))$\\
+		3. $\frac{1}{2} \Delta t$ step on $\partial_t w(x, t) = \partial_{xx} w(x, t)$\\
+		4. $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} -2\sqrt{\pi} c^0_0(x,t))$\\
+		5. $\Delta t$ step on $\partial_t Q(x, t) + A \partial_x Q(x, t) = 0$\\
+		6. $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} - 2\sqrt{\pi} c^0_0(x,t))$\\
+		7. $\frac{1}{2} \Delta t$ step on $\partial_t w(x, t) = \partial_{xx} w(x, t)$. \\
+		8. $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} -2\sqrt{\pi} c^0_0(x,t))$\\
+		9. $\frac{1}{2} \Delta t$ step on $\partial_t Q(x, t) = \varphi(Q(x, t))$\\
+	\end{algorithm}
+We use an ODE solver for the first subproblem, a high-resolution wave propagation algorithm for the hyperbolic system, and a finite difference method for the remaining subproblems.
 \end{frame}
 
+
+\begin{frame}
+	\scriptsize
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wx/wx=1_Dr=0.1_N=1}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wx/wx=1_Dr=0.1_N=6}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wx/wx=1_Dr=1_N=1}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wx/wx=1_Dr=1_N=6}
+		\end{minipage}
+		\caption{ Numerical solution of the drift-diffusion term with constant externally imposed velocity gradient corresponding to shear flow using different values of $D_r$ and $N = 1,6$.}
+	\end{figure}
+\end{frame}
+	
+
+\begin{comment}
+	Solve this problem by splitting it into two subproblems of the form
+	\begin{enumerate}
+		\item $\partial_t Q(x,t) + \textcolor{red}{A} Q_x=0$
+		\item $\partial_t Q(x,t)  = \textcolor{blue}{\varphi} (Q(x,t))$
+	\end{enumerate}
+	\vspace{2mm}
+Use finite volume methods for subproblem 1 and an ODE solver for subproblem 2.
+\end{frame}
+\end{comment}
+
+\begin{comment}
+\begin{frame}{Simulation of One-Dimensional Coupled Model}
+	\scriptsize
+	Consider the coupled moment system
+	\begin{equation}
+		\begin{split}
+			&\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)) \\
+			&\partial_{t}w = \partial_{xx}w + \delta(\bar{\rho}-\rho(x,t)).
+		\end{split}
+		\label{coupledsys_1d}
+	\end{equation}
+	on the interval $[0, 100]$ with periodic boundary conditions and initial data
+	\begin{align*}
+		&c^0_0(x,0) = exp(-(x-50)^2)/(2 \cdot \sqrt{\pi}), \\
+		&w(x,0) = 0 ,\\
+		&D_r = 0.01, \delta = 1
+	\end{align*}
+\end{frame}
+\end{comment}
+
+\begin{comment}
 \begin{frame}
 	\scriptsize
 	\begin{enumerate}
@@ -44,7 +115,7 @@ Consider
 			\end{array}\right).
 		\end{equation*}
 		with an implizit method.
-		\item Solve the advection equation
+		\item Solve 
 		$$
 		\partial_t \left(\begin{array}{c}
 			f_0 \\
@@ -69,9 +140,10 @@ Consider
 			c_2^2
 		\end{array}\right) = 0
 		$$
-		with one-dimensional resolution Wave Propagation Algorithm.
+		with high resolution wave propagation algorithm.
 	\end{enumerate}
 \end{frame}
+\end{comment}
 
 \begin{comment}
 \begin{frame}{Macroscopic Transport}
@@ -134,27 +206,14 @@ Consider
 \end{frame}
 \end{comment}
 
-\begin{frame}{Simulation of One-Dimensional Coupled Shear Flow Problem}
-\scriptsize
-Consider the coupled moment system
-\begin{equation}
-	\begin{split}
-		&\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)) \\
-		&Re\partial_{x}w = \partial_{xx}w + \delta(\bar{\rho}-\rho(x,t)).
-	\end{split}
-	\label{coupledsys_1d}
-\end{equation}
-on the interval $[0, 100]$ with periodic boundary conditions and initial data
-\begin{align*}
-	&c^0_0(x,0) = exp(-(x-50)^2)/(2 \cdot \sqrt{\pi}), \\
-	&w(x,0) = 0 ,\\
-	&D_r = 0.01, \delta = 1
-\end{align*}
-\end{frame}
 
+
+%%%%%%%%%%%% Case 1 %%%%%%%%%%%
 
 \begin{frame}{Accuracy Study}
 \scriptsize
+Let  $c^0_0(x,0) = exp(-(x-50)^2)/(2 \cdot \sqrt{\pi})$ the initial values.
+\vspace{5mm}
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|l|l|}
@@ -198,7 +257,7 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 			2048 & $ 1.3310 \cdot 10^{-2}$ &$-0.01$& $  3.4125 \cdot 10^{-3}$&$-0.10$& $ 5.5722 \cdot 10^{-4}$&$0.53$\\
 			\hline
 		\end{tabular}
-		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\caption{Accuracy analysis for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
 		\label{tab:Dr=0.01_error_N=1,2,3vsN=6}
 	\end{table}
 \end{frame}
@@ -223,7 +282,7 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 			2048 & $ 2.4303 \cdot 10^{-4}$ &$1.33$& $ 1.7118 \cdot 10^{-4}$&$2.0$\\
 			\hline
 		\end{tabular}
-		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\caption{Accuracy analysis for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.01$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
 		\label{tab:Dr=0.01_error_N=4,5vsN=6}
 	\end{table}
 \end{frame}
@@ -250,7 +309,7 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 			2048 & $1.4673\cdot 10^{-3}$ &$0.08$& $ 1.2731 \cdot 10^{-4}$&$1.75$& $ 1.3623 \cdot 10^{-4}$&$1.99$\\
 			\hline
 		\end{tabular}
-		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.05$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\caption{Accuracy analysis for the component $c^0_0$ of the coupled problem for shear flow using $D_r=0.05$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
 		\label{tab:Dr=0.05_error_N=1,2,3vsN=6}
 	\end{table}
 \end{frame}
@@ -277,7 +336,7 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 			2048 & $ 7.9252\cdot 10^{-3}$ &$1.94$& $ 4.5655\cdot 10^{-3}$&$1.98$& $3.7315  \cdot 10^{-3}$&$2.03$\\
 			\hline
 		\end{tabular}
-		\caption{Accuracy study for the component $c^0_0$ of the coupled problem for shear flow using $D_r=1$. The reference solution, computed on a grid with $8192$ cells using $N=6$. In all computations the time step was limited by a CFL condition with $cfl \leq 0.8$.}
+		\caption{Accuracy analysis for the component $c^0_0$ of the coupled problem for shear flow using $D_r=1$. The reference solution, computed on a grid with $8192$ cells using $N=6$. All simulations employed a time step constrained by a CFL condition with $cfl \leq 0.8$.}
 		\label{tab:Dr=1_error_N=1,2,3vsN=6}
 	\end{table}
 \end{frame}
@@ -289,7 +348,7 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 	\begin{align*}
 		c^0_0 (x,0) = (1+(1\cdot10^{-4} \cdot \eta(x)-5\cdot10^{-5}))/(2\sqrt{\pi}),
 	\end{align*}
-	where $\eta(x)$ random values is.
+where $\eta(x)$ is a random variable taking values in the interval $\pm \frac{1}{2}$.
 	
 	\begin{figure}
 		\centering
@@ -318,5 +377,22 @@ on the interval $[0, 100]$ with periodic boundary conditions and initial data
 		\end{minipage}
 		\caption{Approximation of the coupled problem for shear flow (\ref{coupledsys_1d}) with $D_r =1$. The plot shows the density at time $t=30$ for $N = 1$ and $N = 2$, represented by the blue line. The black line represents a reference solution calculated with $N = 6$ moment equations.}
 		\label{ClusterFormation_Dr=1}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Numerical Solution on the Sphere for Rectilinear Flow}
+	\scriptsize
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wxwy/Sol_onSphere_wxwy_Dr=0.1_N=6}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\includegraphics[scale=0.4]{Bilder_wxwy/Sol_onSphere_wxwy_Dr=1_N=6}
+		\end{minipage}
+		\caption{Numerical solution of the drift-diffusion term with constant externally imposed velocity gradient using different values of $D_r$ and $N = 6$.}
 	\end{figure}
 \end{frame}

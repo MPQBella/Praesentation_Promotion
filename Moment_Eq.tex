@@ -1,110 +1,143 @@
-\section{Hierarchy of Moment Equations for Shear Flow}
-\begin{frame}{Hierarchy of Moment Equations for Shear Flow 1D}
+\section{Hierarchy of Moment Equations for Flows}
+\begin{frame}{Ansatz for Derivation of Moment Equations}
 	\scriptsize
-	Consider the simplified shear flow problem
-	\begin{align*}
-	\partial_{t}\left(\sin \theta f\right)+ \textcolor{blue}{\partial_\theta\left( w_x\sin ^3 \theta \cos \phi f\right)} - \textcolor{red}{\partial_x(-\cos\phi  \cos\theta \sin\theta^2 f)}
-	= \textcolor{blue}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
-	\end{align*}
+    Consider approximation of the form
+	\begin{align}
+		\textcolor{cyan}{f(\textbf{x}, t, \phi, \theta) \approx f^N(\textbf{x},t,\phi,\theta) :=  \sum_{n=1}^{N} \sum_{i=-2n}^{2n} c^i_{2n}(\textbf{x},t) \cdot P^i_{2n}(\phi, \theta)}, \label{spectralmethod}
+	\end{align}
+	where $P^i_{2n}(\phi, \theta)$, $n = 0, \ldots, N$, $i = -2n, \ldots, 2n$
+	\begin{itemize}
+		\item are harmonic polynomial basis functions, i.e., the eigenfunctions of the Laplace-Beltrami operator with the eigenvalue $-2n(2n+1)$
+		\pause
+		\item form an orthonormal basis, wrt. the L2-inner product on the sphere
+		\begin{align*}
+			(g,h)_{S^2} := \int_{0}^{2\pi} \int_{0}^{\pi} g(\phi, \theta) h(\phi, \theta) \cdot \sin(\theta) d\theta d\phi,
+		\end{align*}
+	\pause
+	\item and every square integrable function on $S^2$ can be expressed as a linear combination of spherical harmonics $f(\phi, \theta) = \sum^{\infty}_{n=1} \sum_{i=-2n}^{2n} c^i_{2n} \cdot P^i_{2n}$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Derivation of Moment Equations}
+	\scriptsize
+	We derive the moment equations by
+	\begin{itemize}
+		\item Insert ansatz for $f$ into kinetic equation from (\ref{SmochEq_wx}) 
+\begin{align*}
+\sin\theta \partial_{t}f^N(x,t,\phi,\theta) + &  \textcolor{red}{\partial_x (\cos\phi \cos\theta \sin^2\theta f^N)} \\
+	& 
+	 =- \textcolor{blue}{\partial_\theta \left(w_x \sin^3 \theta \cos \phi f^N\right)} +\textcolor{blue}{D_{r} \left( \partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f^N \right) + \partial_\theta (\sin \theta \partial_\theta f^N) \right)}
+\end{align*}
+		\item Multiply consecutively with all basis functions used in the ansatz and integrate the resulting equations over $\phi$ and $\theta$
+	\end{itemize}
 \pause
-	The system of the moment equations is expressed as follows
+The system of the moment equations is expressed as follows
 \begin{align}
 	\partial_t Q(\boldsymbol{x},t) + \textcolor{red}{A}\partial_x Q(\boldsymbol{x},t) = \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)),
 \end{align}
-where $Q(x,t)=(c^0_0, c^{-2}_2, \ldots, c^{2N}_{2N})$ represents the vector of the moments. \\
-\vspace{1mm}
-\pause
-For $N=1$ we obtain 
-\begin{equation}
-	\partial_t \left(\begin{array}{c}
-		f_0 \\
-		c_2^{-2} \\
-		c_2^{-1} \\
-		c_2^0 \\
-		c_2^1 \\
-		c_2^2
-	\end{array}\right) + \textcolor{red}{\begin{pmatrix}
-			\vspace{8pt}
-			0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
-			\vspace{8pt}
-			0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
-			\vspace{8pt}
-			\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
-			\vspace{8pt}
-			0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
-			\vspace{8pt}
-			0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
-			\vspace{8pt}
-			0 & 0 & 0 & 0 & \frac{1}{7} & 0
-	\end{pmatrix}} \cdot \partial_x
-	\left(\begin{array}{c}
-		f_0 \\
-		c_2^{-2} \\
-		c_2^{-1} \\
-		c_2^0 \\
-		c_2^1 \\
-		c_2^2
-	\end{array}\right)  =  \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)).
-\end{equation}
+where $Q(x,t)=(c^0_0(x,t), c^{-2}_2(x,t), \ldots, c^{2N}_{2N}(x,t))^T$ represents the vector of the moments. 
 \end{frame}
 
-	\begin{comment}
-	\begin{align*}
-		\partial_{t} f_0 = &-\textcolor{red}{\frac{\sqrt{15}}{15}\partial_x c^{-1}_2}\\
-		\partial_{t} c^{-2}_2 = &-\textcolor{red}{\frac{1}{7} \partial_x c^{-1}_2} -\textcolor{blue}{6D_rc^{-2}_2}+ \textcolor{blue}{\frac{2}{7}w_xc^{-1}_2} \\
-		\partial_{t} c^{-1}_2 = &-\textcolor{red}{\frac{\sqrt{15}}{15}\partial_x f_0} - \textcolor{red}{\frac{1}{7} \partial_x c^{-2}_2} - \textcolor{red}{\frac{\sqrt{3}}{21}\partial_x c^0_2} \\ &-\textcolor{blue}{\frac{5}{7}w_x c^{-2}_2} -\textcolor{blue}{6D_r c^{-1}_2} +\textcolor{blue}{\frac{3\sqrt{3}}{7}w_x c^0_2} \\
-		\partial_{t} c^0_2 = &-\textcolor{red}{\frac{\sqrt{3}}{21}\partial_x c^{-1}_2} -\textcolor{blue}{\frac{4\sqrt{3}}{7}w_x c^{-1}_2} -\textcolor{blue}{6D_r c^0_2} \\
-		\partial_{t} c^1_2 = &-\textcolor{red}{\frac{1}{7}\partial_x c^2_2} -\textcolor{blue}{-6D_r c^{1}_2} -\textcolor{blue}{\frac{5}{7}w_x c^{2}_2}\\
-		\partial_{t} c^2_2 = &-\textcolor{red}{\frac{1}{7}\partial_x c^1_2} +\textcolor{blue}{\frac{2}{7}w_x c^{1}_2} -\textcolor{blue}{6D_r c^{2}_2}
-	\end{align*}
-\end{comment}
+\begin{frame}{Derivation: A Closer Look}
+\scriptsize
+Consider 
+\begin{align*}
+	\textcolor{cyan}{\underbrace{\sin\theta \partial_{t}f^N(x,t,\phi,\theta)}_{[1]}} + &  \underbrace{\partial_x (\cos\phi \cos\theta \sin^2\theta f^N)}_{[2]} \\
+	& 
+	= -\partial_\theta \left(w_x \sin^3 \theta \cos \phi f^N\right) + D_{r} \left(\partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f^N \right) + \partial_\theta (\sin \theta \partial_\theta f^N) \right)
+\end{align*}
+\pause
+For $k=0, \ldots, N$, $l=-2k, \ldots, 2k$ we obtain for term $[1]$
+\begin{align*}
+	&\int_{0}^{2\pi} \int_{0}^{\pi} \textcolor{cyan}{\sin\theta \partial_t \left(\sum_{n=0}^{N} \sum_{i=-2n}^{2n} c^i_{2n}(\textbf{x},t) \cdot P^i_{2n}(\phi, \theta)\right)}P^l_{2k}(\phi, \theta) \\
+	&= \sum_{n=0}^{N} \sum_{i=-2n}^{2n} \partial_t c^i_{2n}(\textbf{x},t) \int_{0}^{2\pi} \int_{0}^{\pi} \sin\theta P^i_{2n}(\phi, \theta) P^l_{2k}(\phi, \theta) d\phi d\theta \\
+	&=  \sum_{n=0}^{N} \sum_{i=-2n}^{2n} \partial_t c^i_{2n}(\textbf{x},t) (P^i_{2n}(\phi, \theta) P^l_{2k}(\phi, \theta))_{S^2} =  \sum_{n=0}^{N} \sum_{i=-2n}^{2n} \partial_t c^i_{2n}(\textbf{x},t) \cdot \delta_{n,k} \delta_{i,l} \\
+	&= \partial_t c^l_{2k}(\textbf{x},t)
+\end{align*}
+\pause
+This corresponds to this term
+$\textcolor{cyan}{\partial_t Q(\boldsymbol{x},t)} + A\partial_x Q(\boldsymbol{x},t) = \varphi (Q(\boldsymbol{x},t))$
+\end{frame}
 
-\begin{comment}
 \begin{frame}
 	\scriptsize
-For $N=1$ we obtain 
+Consider term [2]
+\begin{align*}
+	\underbrace{\sin\theta \partial_{t}f^N(x,t,\phi,\theta)}_{[1]} + &  \textcolor{cyan}{\underbrace{\partial_x (\cos\phi \cos\theta \sin^2\theta f^N)}_{[2]}} \\
+	& 
+	= -\partial_\theta \left(w_x \sin^3 \theta \cos \phi f^N\right) + D_{r} \left(\partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f^N \right) + \partial_\theta (\sin \theta \partial_\theta f^N) \right)
+\end{align*}
+\pause
+This corresponds to this term
+$\partial_t Q(\boldsymbol{x},t) + \textcolor{cyan}{A\partial_x Q(\boldsymbol{x},t)} = \varphi (Q(\boldsymbol{x},t))$ \\
+\vspace{2mm}
+For $N=1$ the matrix $A$ has the form
 \begin{equation}
-	\partial_t \left(\begin{array}{c}
-		f_0 \\
-		c_2^{-2} \\
-		c_2^{-1} \\
-		c_2^0 \\
-		c_2^1 \\
-		c_2^2
-	\end{array}\right) + \textcolor{red}{\begin{pmatrix}
-	\vspace{8pt}
-	0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
-	\vspace{8pt}
-	0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
-	\vspace{8pt}
-	\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
-	\vspace{8pt}
-	0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
-	\vspace{8pt}
-	0 & 0 & 0 & 0 & 0 & \frac{1}{7}\\
-	\vspace{8pt}
-	0 & 0 & 0 & 0 & \frac{1}{7} & 0
-\end{pmatrix}} \cdot \partial_x
-	\left(\begin{array}{c}
-		f_0 \\
-		c_2^{-2} \\
-		c_2^{-1} \\
-		c_2^0 \\
-		c_2^1 \\
-		c_2^2
-	\end{array}\right)  =  \textcolor{blue}{\varphi} (Q(\boldsymbol{x},t)).
+	\left[\begin{array}{c:c}
+		A_{0,0} & A_{0,1} \\
+		\hdashline A_{0,1}^T & A_{1,1}
+	\end{array}\right]=\left[\begin{array}{c:ccccc}
+		0 & 0 & \frac{1}{\sqrt{15}} & 0 & 0 & 0 \\
+		\hdashline 0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
+		\frac{1}{\sqrt{15}} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 & 0 \\
+		0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & \frac{1}{7} \\
+		0 & 0 & 0 & 0 & \frac{1}{7} & 0
+	\end{array}\right] .
 \end{equation}
 \end{frame}
-\end{comment}
+
+\begin{frame}
+	\scriptsize
+	For N = 2 the symmetric matrix A has the structure
+	\begin{equation*}
+		\left[\begin{array}{c:c:c}
+		\parbox[c]{0.5cm}{\centering A_{0,0}} & \parbox[c]{1cm}{\centering A_{0,1}} & \\
+			\hdashline
+		\parbox[c]{0.5cm}{\centering A_{0,1}^T} & \parbox[c]{2cm}{\centering A_{1,1}} & \parbox[c]{2cm}{\centering A_{1,2}} \\
+		\hdashline
+		& \parbox[c]{0.5cm}{\centering A_{1,2}^T} & \parbox[c]{2cm}{\centering A_{2,2}}
+		\end{array}\right] .
+	\end{equation*}
+\textcolor{cyan}{For any N the system of moment equations is hyperbolic.}
+\end{frame}
+
+\begin{frame}{Hierarchy of Moment Equations for Shear Flow}
+\scriptsize
+For $N=1$ we obtain 
+\begin{equation}
+	\begin{aligned}
+		&\partial_t (Q(\boldsymbol{x},t)) + \textcolor{red}{
+			\begin{pmatrix}
+				0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
+				0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
+				\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 & 0 \\
+				0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 & 0 & \frac{1}{7} \\
+				0 & 0 & 0 & 0 & \frac{1}{7} & 0
+		\end{pmatrix}} \cdot \partial_x
+		(Q(\boldsymbol{x},t)) \\
+		&= \textcolor{blue}{
+			\begin{pmatrix}
+				0 & 0 & 0 & 0 & 0 & 0 \\
+				0 & -6D_r & \frac{2}{7}w_x & 0 & 0 & 0 \\
+				-\frac{\sqrt{15}}{5}w_x & -\frac{5}{7}w_x & -6D_r & \frac{3\sqrt{3}}{7}w_x & 0 & 0 \\
+				0 & 0 & -\frac{4\sqrt{3}}{7}w_x & -6D_r & 0 & 0 \\
+				0 & 0 & 0 & 0 & -6D_r & -\frac{5}{7} w_x \\
+				0 & 0 & 0 & 0 & \frac{2}{7}w_x & -6D_r
+			\end{pmatrix}
+		} \cdot (Q(\boldsymbol{x},t)).
+	\end{aligned}
+\end{equation}
+\end{frame}
 
 
-\begin{frame}{Hierarchy of Moment Equations for Shear Flow 2D}
+\begin{frame}{Hierarchy of Moment Equations for Rectilinear Flow}
 	\scriptsize
 Consider
 \begin{align*}
-	&\partial_{t}\left(\sin \theta f\right)+ \textcolor{blue}{\partial_\theta\left(( w_x \sin^3 \theta \cos \phi + w_y\sin \phi \sin^3 \theta) f\right)}\\
-&+\textcolor{red}{\partial_x(\cos\phi \sin\theta \cos\theta f)} + \textcolor{red}{\partial_y(\sin \phi \sin \theta \cos \theta f )}
-= \textcolor{blue}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
+	\partial_{t}\left(\sin \theta f\right) &+ \textcolor{red}{\partial_x(\cos\phi \sin\theta \cos\theta f)} + \textcolor{red}{\partial_y(\sin \phi \sin \theta \cos \theta f )} \\
+&= - \textcolor{blue}{\partial_\theta\left(( w_x \sin^3 \theta \cos \phi + w_y\sin \phi \sin^3 \theta) f\right)} + \textcolor{blue}{D_{r}(\partial_{\theta\theta}\partial_{\phi\phi})f}.
 \end{align*}
 	For $N=1$ the system is given as
 	\begin{equation}
@@ -144,17 +177,17 @@ The matrix $\textcolor{red}{A}$ and the Matrix $\textcolor{red}{B}$ has the form
 	\[
 	A = \begin{pmatrix}
 		\vspace{8pt}
-		u & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
+		0 & 0 & \frac{\sqrt{15}}{15} & 0 & 0 & 0 \\
 		\vspace{8pt}
-		0 & u & \frac{1}{7} & 0 & 0 & 0 \\
+		0 & 0 & \frac{1}{7} & 0 & 0 & 0 \\
 		\vspace{8pt}
-		\frac{\sqrt{15}}{15} & \frac{1}{7} & u & \frac{\sqrt{3}}{21} & 0 &  0 \\
+		\frac{\sqrt{15}}{15} & \frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 &  0 \\
 		\vspace{8pt}
-		0 & 0 & \frac{\sqrt{3}}{21} & u & 0 & 0 \\
+		0 & 0 & \frac{\sqrt{3}}{21} & 0 & 0 & 0 \\
 		\vspace{8pt}
-		0 & 0 & 0 & 0 & u & \frac{1}{7} \\
+		0 & 0 & 0 & 0 & 0 & \frac{1}{7} \\
 		\vspace{8pt}
-		0 & 0 & 0 & 0 & \frac{1}{7} & u
+		0 & 0 & 0 & 0 & \frac{1}{7} & 0
 	\end{pmatrix},
 	\]
 \end{minipage}
@@ -162,17 +195,17 @@ The matrix $\textcolor{red}{A}$ and the Matrix $\textcolor{red}{B}$ has the form
 	\[
 	B = \begin{pmatrix}
 		\vspace{8pt}
-		v & 0 & 0 & 0 & \frac{\sqrt{15}}{15} & 0 \\
+		0 & 0 & 0 & 0 & \frac{\sqrt{15}}{15} & 0 \\
 		\vspace{8pt}
-		0 & v & 0 & 0 & -\frac{1}{7} & 0 \\
+		0 & 0 & 0 & 0 & -\frac{1}{7} & 0 \\
 		\vspace{8pt}
-		0 & 0 & v & 0 & 0 &  \frac{1}{7} \\
+		0 & 0 & 0 & 0 & 0 &  \frac{1}{7} \\
 		\vspace{8pt}
-		0 & 0 & 0 & v & \frac{\sqrt{3}}{21} & 0 \\
+		0 & 0 & 0 & 0 & \frac{\sqrt{3}}{21} & 0 \\
 		\vspace{8pt}
-		\frac{\sqrt{15}}{15} & -\frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & v & 0 \\
+		\frac{\sqrt{15}}{15} & -\frac{1}{7} & 0 & \frac{\sqrt{3}}{21} & 0 & 0 \\
 		\vspace{8pt}
-		0 & 0 & \frac{1}{7} & 0 & 0 & v
+		0 & 0 & \frac{1}{7} & 0 & 0 & 0
 	\end{pmatrix}
 	\]
 \end{minipage}
