@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{dahm2024numericaldiscretisationhyperbolicsystems}
+S.~Dahm, J.~Giesselmann, and C.~Helzel.
+\newblock Numerical discretisation of hyperbolic systems of moment equations
+  describing sedimentation in suspensions of rod-like particles, 2024.
+
+\bibitem{doi:10.1137/21M1464592}
+S.~Dahm and C.~Helzel.
+\newblock Hyperbolic systems of moment equations describing sedimentation in
+  suspensions of rod-like particles.
+\newblock {\em Multiscale Modeling \& Simulation}, 20(3):1002--1039, 2022.
+
+\bibitem{zbMATH05990161}
+{\'E}.~Guazzelli and J.~F. Morris.
+\newblock {\em A physical introduction to suspension dynamics. {With}
+  illustrations by {Sylvie} {Pic}.}
+\newblock Camb. Texts Appl. Math. Cambridge: Cambridge University Press, 2012.
+
+\bibitem{zbMATH05037679}
+C.~Helzel and F.~Otto.
+\newblock Multiscale simulations for suspensions of rod-like molecules.
+\newblock {\em J. Comput. Phys.}, 216(1):52--75, 2006.
+
+\bibitem{zbMATH07295185}
+C.~Helzel and M.~Schneiders.
+\newblock Numerical approximation of the {Smoluchowski} equation using radial
+  basis functions.
+\newblock {\em J. Comput. Math.}, 38(1):176--194, 2020.
+
+\bibitem{zbMATH06724175}
+C.~Helzel and A.~E. Tzavaras.
+\newblock A kinetic model for the sedimentation of rod-like particles.
+\newblock {\em Multiscale Model. Simul.}, 15(1):500--536, 2017.
+
+\bibitem{zbMATH01218597}
+M.~Morimoto.
+\newblock {\em Analytic functionals on the sphere}, volume 178 of {\em Transl.
+  Math. Monogr.}
+\newblock Providence, RI: American Mathematical Society, 1998.
+
+\end{thebibliography}

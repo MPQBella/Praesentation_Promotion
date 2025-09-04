@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: latex-beamer-tutorial.aux
+A level-1 auxiliary file: Kapitel/Introduction.aux
+A level-1 auxiliary file: Kapitel/ShearFlow.aux
+A level-1 auxiliary file: Kapitel/Moment_Eq.aux
+A level-1 auxiliary file: Kapitel/Numerical_Simulations.aux
+A level-1 auxiliary file: Kapitel/RectilinearFlow.aux
+The style file: abbrv.bst
+Database file #1: Bibliothek.bib
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            553 strings with 5208 characters,
+and the built_in function-call counts, 2106 in all, are:
+= -- 205
+> -- 90
+< -- 1
++ -- 37
+- -- 28
+* -- 148
+:= -- 358
+add.period$ -- 21
+call.type$ -- 7
+change.case$ -- 33
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 76
+empty$ -- 176
+format.name$ -- 28
+if$ -- 434
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 8
+newline$ -- 37
+num.names$ -- 14
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 28
+quote$ -- 0
+skip$ -- 53
+stack$ -- 0
+substring$ -- 133
+swap$ -- 9
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 0
+while$ -- 21
+width$ -- 8
+write$ -- 76

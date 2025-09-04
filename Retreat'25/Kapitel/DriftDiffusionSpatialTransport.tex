@@ -1,0 +1,35 @@
+\section{Shear Flow}
+\begin{frame}{Shear Flow}
+	\scriptsize
+	For a \textit{shear flow} assume $	\boldsymbol{u} = (0,0,w(x,t))^T$, $f=f(x,t,\phi,\theta)$. \\
+		\vspace{12pt}
+		\scriptsize
+		Consider the kinectic Smochluchwoski equation
+		\begin{align*}
+			\partial_t f+ \nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f) & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}-\textcolor{red}{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)} \notag \\
+			& = \textcolor{blue}{D_r \Delta_n f} .\label{SmochEq_kurz}
+		\end{align*}
+		\vspace{12pt}
+		In spherical coordinates and for a given velocity field $\boldsymbol{u}$, we get
+\begin{equation}
+	\begin{aligned}
+		\sin\theta \partial_{t}f & + \textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)} + \textcolor{red}{\partial_x (\cos\phi \cos\theta \sin^2\theta f)} \\
+		& + \textcolor{blue}{\partial_\theta \left(w_x \sin^3 \theta \cos \phi f\right)}
+		= \textcolor{blue}{D_{r} \left( \partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f \right) + \partial_\theta (\sin \theta \partial_\theta f) \right)}, \\
+		& Re \partial_{t}w(x,t) = \partial_{xx}w + \delta \left( \bar{\rho} - \int_{0}^{2\pi} \int_{0}^{\pi} f \sin \theta \, d\theta \, d\phi \right) \label{SmochEq_wx}
+	\end{aligned}
+\end{equation}
+\begin{figure}[H]
+    \flushleft
+	\includegraphics[scale=0.5]{Bilder/Ausrichtung_Partikeln}
+\end{figure}
+\end{frame}
+
+
+
+
+
+
+
+
+
