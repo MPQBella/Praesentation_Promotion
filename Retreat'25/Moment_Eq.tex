@@ -1,0 +1,29 @@
+\section{Coupled System for a Three-Dimensional Flow}
+\begin{frame}{Coupled System for a Three-Dimensional Flow}
+	\scriptsize
+	We consider $\boldsymbol{u} = \left( 0, 0, w(x,y,z,t)\right)^T$, $f(x,y,t,\phi,\theta)$. We get
+	\begin{equation}
+		\begin{aligned}
+			&\sin\theta \partial_{t}f(x,y,t,\phi, \theta)+ \textcolor{red}{\partial_x(\cos\phi \sin\theta \cos\theta f)} + \textcolor{red}{\partial_y(\sin \phi \sin \theta \cos \theta f)} - \textcolor{red}{\partial_z((1+ \cos^2 \theta)f)} \\
+			&= -  \textcolor{blue}{\partial_\theta\left(( w_x \sin^3 \theta \cos \phi + w_y\sin \phi \sin^3 \theta - w_z \cos \theta \sin^2 \theta) f\right)} \textcolor{blue}{D_{r}\left( \partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f \right)+ \partial_\theta (\sin \theta \partial_\theta f)\right)} \\
+			&Re\partial_{t}w(x,y,t) = \partial_{xx}w + \partial_{yy}w + \partial_{yy}z + \delta\left(\bar{\rho}-\int_{0}^{2\pi} \int_{0}^{\pi} f \sin \theta d\theta d\phi \right).
+		\end{aligned}
+	\end{equation}
+	\pause
+	The system of hierarchy of moment equations is given as
+	\begin{equation}
+		\partial_t Q + \textcolor{red}{A  \partial_x Q}
+		+ \textcolor{red}{B \partial_y Q} +  \textcolor{red}{C \partial_z Q} =  \textcolor{blue}{ D(w_x,w_y, w_z)Q+ D_rEQ},
+	\end{equation}
+	where $Q=(c^0_0(x,t), c^{-2}_2(x,t), \ldots, c^{2N}_{2N}(x,t))^T$ represents the vector of the moments and \\
+	\vspace{2mm}
+	$A,B,C,D,E \in \mathbb{R}^{(N+1)(2N+1)x(N+1)(2N+1)}$.
+\end{frame}
+
+
+
+
+
+
+
+
