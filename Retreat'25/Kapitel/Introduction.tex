@@ -1,24 +1,4 @@
 \section{Recap}
-\begin{comment}
-\begin{frame}
-    Guazzelli et al examined a dilute suspension of rod-like particles influenced by gravity.
-\begin{columns}
-	\begin{column}{0.5\textwidth}
-		\begin{itemize}
-			\item In an initially homogeneous suspension, rod-like particles form clusters where they are denser.
-			\item The clusters create downward flows balanced by upward flows.
-			\item Particles in a cluster mostly align with gravity, occasionally flipping.
-		\end{itemize}
-	\end{column}
-	\begin{column}{0.5\textwidth}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.5]{Bilder/Bild_Particles}
-		\end{figure}
-	\end{column}
-\end{columns}
-\end{frame}
-\end{comment}
 
 \begin{frame}{Mathematical Model for the Sedimentation of Rod-Like Particles}
 	\scriptsize
@@ -108,32 +88,7 @@ $D_r, \delta$ and $Re$ are non-dimensional parameters.
 	\end{block}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-\begin{frame}{Spectral method}
-	\scriptsize
-	Consider the drift-diffusion equation
-	\begin{align}
-		\textcolor{blue}{\partial_t f}+ \textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot(\boldsymbol{u} f)} & +\textcolor{blue}{\nabla_{\boldsymbol{n}} \cdot\left(P_{\boldsymbol{n}^{\perp}} \nabla_{\boldsymbol{x}} \boldsymbol{u} \boldsymbol{n} f\right)}-\textcolor{gray!80}{\nabla_{\boldsymbol{x}} \cdot\left((I+\boldsymbol{n} \otimes \boldsymbol{n}) e_3 f\right)} \notag \\
-		& = \textcolor{blue}{D_r \Delta_n f}+\textcolor{gray!80}{\gamma \nabla_{\boldsymbol{x}} \cdot(I+\boldsymbol{n} \otimes \boldsymbol{n}) \nabla_{\boldsymbol{x}} f} \label{SmochEq_kurz}
-	\end{align}
-	with externally imposed velocity gradient $\nabla_x. \boldsymbol{u}_{\mathrm{ext}}$\\
-	\vspace{12pt}
-	\pause
-	In spherical coordinates
-	\begin{align}
-		\underbrace{\sin \theta \partial_t f}_{[1]} + \underbrace{\partial_\phi\left(a(\phi, \theta) f\right)+\partial_\theta\left(b(\phi, \theta) f\right)}_{[2]} = \underbrace{D_r \left(\partial_\phi\left(\frac{1}{\sin \theta} \partial_\phi f\right)+\partial_\theta\left(\sin \theta \partial_\theta f\right)\right)}_{[3]}, \label{Smoch_S2}
-	\end{align}	
-	with $\phi \in [0, 2 \pi]$ and $\theta \in [0, \pi]$.\\
-	\vspace{12pt}
-	\pause
-  Ansatz for our \textcolor{cyan}{spectral method}
-\begin{align}
-	f(x,t,\phi, \theta) \approx f_0(x,t) \cdot P_0^0 + \sum_{n=1}^{N} \sum_{k=-2n}^{2n} c^k_{2n}(x,t) \cdot P^k_{2n}(\phi, \theta), \label{ansatz}
-\end{align}
-where $P^k_{2n}(\phi, \theta)$ are harmonic polynomial basis functions.  %, i.e. are eigenfunctions of Laplace Beltrami operator.
-\end{frame}
-\end{comment}
+
 
 
 
