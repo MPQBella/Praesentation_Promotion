@@ -1,4 +1,4 @@
-\section{Wavepropagtion}
+\section{Wave Propagation Algorithm}
 
 \begin{frame}{Approximation of Coupled Shear Flow Problem}
 	\scriptsize
@@ -86,7 +86,7 @@
 	\begin{columns}[c]
 		
 		%------------------ Linke Spalte: Theorie ------------------%
-		\begin{column}{0.55\textwidth}
+		\begin{column}{0.50\textwidth}
 			\textbf{General system:}
 			\[
 			q_t + f(q)_x + g(q)_y + h(q)_z = 0
@@ -94,8 +94,8 @@
 			
 			\textbf{Key ideas:}
 			\begin{itemize}
-				\item \textbf{1D Riemann problems at cell faces:}  
-				Solve along the normal direction of each cell face.
+				\item \textbf{1D Riemann problems at cell interfaces:}  
+				Solve along the normal direction of each cell interface.
 				\item \textbf{Wave decomposition:}  
 				Decompose jumps into waves \(W^p\) with speeds \(s^p\).
 				\item \textbf{Fluctuations:}  
@@ -113,39 +113,44 @@
 		\end{column}
 		
 		%------------------ Rechte Spalte: Würfel ------------------%
-		\begin{column}{0.45\textwidth}
+		\begin{column}{0.50\textwidth}
 			\centering
-			\begin{tikzpicture}[scale=0.7]
-				
-				\def\a{3}
-				\coordinate (O) at (0,0);
-				\coordinate (X) at (\a,0);
-				\coordinate (Y) at (0.7*\a,0.45*\a);
-				\coordinate (Z) at (0,1.0*\a);
-				
-				\coordinate (P000) at (0,0);
-				\coordinate (P100) at ($(P000)+(X)$);
-				\coordinate (P010) at ($(P000)+(Y)$);
-				\coordinate (P110) at ($(P100)+(Y)$);
-				\coordinate (P001) at ($(P000)+(Z)$);
-				\coordinate (P101) at ($(P100)+(Z)$);
-				\coordinate (P011) at ($(P010)+(Z)$);
-				\coordinate (P111) at ($(P110)+(Z)$);
-				
-				\draw[thick] (P000) -- (P100) -- (P110) -- (P010) -- cycle;
-				\draw[thick] (P001) -- (P101) -- (P111) -- (P011) -- cycle;
-				\draw[thick] (P000) -- (P001);
-				\draw[thick] (P100) -- (P101);
-				\draw[thick] (P010) -- (P011);
-				\draw[thick] (P110) -- (P111);
-				
-				\coordinate (Ax) at (-0.6,-0.3);
-				\draw[->, thick] (Ax) -- ++(1.8,0) node[right] {\(x\)};
-				\draw[->, thick] (Ax) -- ++(0.9,1.05) node[right] {\(y\)};
-				\draw[->, thick] (Ax) -- ++(0,1.7) node[above] {\(z\)};
-				
-			\end{tikzpicture}
-		\end{column}
+         % 1D-Gitter
+       % \begin{tikzpicture}[scale=0.8]
+ 	   %  \foreach \i in {0,1,2} {\draw (\i,0) rectangle (\i+1,0.8);}
+ 	   %  \node at (1.5, 1) {1D grid};
+ 	    % \node at (0.5,0.4) {$i-1$};
+ 	    % \node at (1.5,0.4) {$i$};
+ 	   %  \node at (2.5,0.4) {$i+1$};
+ 	    % \node[below] at (1,0) {$x_{i-1/2}$};
+ 	   %  \node[below] at (2,0) {$x_{i+1/2}$};
+       % \end{tikzpicture}
+ 
+      %  \vspace{0.5cm} % Abstand zwischen den Grafiken
+ 
+        % 2D-Gitter
+       \begin{tikzpicture}[scale=0.8]
+       	% Titel
+       	\node at (2,4) {2D grid};
+       % nur äußeres Quadrat
+        \draw (0,0) rectangle (4,4);
+      
+       % Beschriftungen
+        \node at (1,1) {$(i,j)$};
+        \node at (3,1) {$(i+1,j)$};
+        \node at (1,3) {$(i,j+1)$};
+        \node at (3,3) {$(i+1,j+1)$};
+      
+       % Schnittlinien
+        \draw[dashed] (2,0) -- (2,4) node[midway,right]
+        \draw[dashed] (0,2) -- (4,2)node[midway,above]
+       
+       % optionale äußere Beschriftungen
+        \node[left] at (0,0.5) {$y_{j-1/2}$};
+        \node[below] at (0.5,0) {$x_{i-1/2}$};
+ 	
+      \end{tikzpicture}
+	 \end{column}
 	\end{columns}
 \end{frame}
 
