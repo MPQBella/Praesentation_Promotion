@@ -1,42 +1,5 @@
 \section{Wave Propagation Algorithm}
 
-\begin{frame}{Approximation of Coupled Shear Flow Problem}
-	\scriptsize
-	Consider
-	\begin{equation}
-		\begin{split}
-			&\partial_t Q(x,t) + A\partial_x Q(x,t) =  D(w_x)Q(x,t)+ D_rEQ(x,t) \\
-			&\partial_{t}w = \partial_{xx}w + \delta(\bar{\rho}-2\sqrt{\pi} c^0_0(x,t)).
-		\end{split}
-		\label{coupledsys_1d}
-	\end{equation}
-	\begin{table}[h]
-		\centering
-		\renewcommand{\arraystretch}{1.3}
-		\scalebox{0.95}{
-			\begin{tabular}{|c|l|}
-				\hline
-				1. & $\frac{1}{2} \Delta t$ step on $\partial_t Q(x, t) = (D(w_x(x,t_n))+ D_rE)Q(x,t)$ \\
-				\hline
-				2. & $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} - 2\sqrt{\pi} c^0_0(x,t))$ \\
-				3. & $\frac{1}{2} \Delta t$ step on $\partial_t w(x, t) = \partial_{xx} w(x, t)$ \\
-				4. & $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} -2\sqrt{\pi} c^0_0(x,t))$ \\
-				\hline
-				5. & $\Delta t$ step on $\partial_t Q(x, t) + A \partial_x Q(x, t) = 0$ \\
-				\hline
-				6. & $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} - 2\sqrt{\pi} c^0_0(x,t))$ \\
-				7. & $\frac{1}{2} \Delta t$ step on $\partial_t w(x, t) = \partial_{xx} w(x, t)$ \\
-				8. & $\frac{1}{4} \Delta t$ step on $\partial_t w(x, t) = \delta(\bar{\rho} -2\sqrt{\pi} c^0_0(x,t))$ \\
-				\hline
-				9. & $\frac{1}{2} \Delta t$ step on $\partial_t Q(x, t) = (D(w_x(x,t_{n+1}))+ D_rE)Q(x,t)$ \\
-				\hline
-			\end{tabular}
-		}
-		\caption{Splitting algorithm for solving the coupled shear flow problem (Dahm et al.)}
-	\end{table}
-	We use an ODE solver for $1.+9.$, LeVeque’s high resolution wave propagation algorithm for $5.$ and finite difference methods for the evolution of $w$.
-\end{frame}
-
 %-------------------------------------------------------
 %-------------------------------------------------------
 
@@ -63,6 +26,7 @@
 		q_{i+1} - q_i = \sum_{p=1}^m \alpha^p r^p, 
 		\quad W^p = \alpha^p r^p, \; \text{travelling with } s^p.
 		\]
+		\pause
 		\item Define fluctuations:
 		\[
 		\mathcal{A}^+ \Delta q_{i-1/2} = \sum_{p: s^p>0} s^p W^p, \quad
@@ -104,6 +68,7 @@
 				\mathcal{B}^\pm \Delta q, \quad 
 				\mathcal{C}^\pm \Delta q
 				\]
+				\pause
 				\item \textbf{Transverse propagation:}  
 				\begin{itemize}
 					\item 2D: Waves in \(x\)-direction generate waves in \(y\), and vice versa.

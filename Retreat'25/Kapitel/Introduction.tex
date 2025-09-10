@@ -1,4 +1,4 @@
-\section{Recap}
+\section{Introduction}
 
 \begin{frame}{Mathematical Model for the Sedimentation of Rod-Like Particles}
 	\scriptsize
@@ -16,29 +16,30 @@ $D_r, \delta$ and $Re$ are non-dimensional parameters.
 \end{beamercolorbox}
 \end{frame}
 
-\begin{frame}{2D: Coupled System for Rectilinear Flow}
+\begin{frame}{Outline of the Project}
 	\scriptsize
-	We consider $\boldsymbol{u} = \left( 0, 0, w(x,y, t)\right)^T$, $f(x,y,t,\phi,\theta)$. We get
-	\begin{equation}
-		\begin{aligned}
-			&\sin\theta \partial_{t}f(x,y,t,\phi, \theta)+ \textcolor{red}{\partial_x(\cos\phi \sin\theta \cos\theta f)} + \textcolor{red}{\partial_y(\sin \phi \sin \theta \cos \theta f)} \\
-			&+ \textcolor{blue}{\partial_\theta\left(( w_x \sin^3 \theta \cos \phi + w_y\sin \phi \sin^3 \theta) f\right)}
-			= \textcolor{blue}{D_{r}\left( \partial_\phi \left(\frac{1}{\sin \theta} \partial_\phi f \right)+ \partial_\theta (\sin \theta \partial_\theta f)\right)} \\
-			&Re\partial_{t}w(x,y,t) = \partial_{xx}w + \partial_{yy}w + \delta\left(\bar{\rho}-\int_{0}^{2\pi} \int_{0}^{\pi} f \sin \theta d\theta d\phi \right).
-		\end{aligned}
-	\end{equation}
-	\pause
-	The system of hierarchy of moment equations is given as
-	\begin{equation}
-		\partial_t Q + \textcolor{red}{A  \partial_x Q}
-		+ \textcolor{red}{B \partial_y Q} =  \textcolor{blue}{ D(w_x,w_y)Q+ D_rEQ},
-	\end{equation}
-    where $Q=(c^0_0(x,t), c^{-2}_2(x,t), \ldots, c^{2N}_{2N}(x,t))^T$ represents the vector of the moments and \\
-    \vspace{2mm}
-    $A,B,D,E \in \mathbb{R}^{(N+1)(2N+1)x(N+1)(2N+1)}$.
+	\begin{block}{Goal}
+		\begin{itemize}
+			\item Reduce the high-dimensional kinetic equation (in space and orientation) to a lower-dimensional system of moment equations (in space).
+			\item Derive and approximate hierarchies of moment equations for the coupled kinetic-fluid model with \textcolor{cyan}{$f$ on $S^2$}
+		\end{itemize}
+	\end{block}
+    \pause
+	\begin{block}{Our Approach}
+		 Investigate different coupled flow situations
+		\begin{itemize}
+			\item externally imposed velocity field
+            \item coupled problems: 1D shear flow, 2D rectilinear flow and
+             \pause now 3D flow with periodic boundary conditions
+		\end{itemize}
+    \end{block}
 \end{frame}
 
+%----------------------------------------------------------
+%----------------------------------------------------------
 
+
+\begin{comment}
 \begin{frame}
 	\scriptsize
 	\begin{figure}[H]
@@ -64,29 +65,11 @@ $D_r, \delta$ and $Re$ are non-dimensional parameters.
 		\caption{Solution structure of \(c^0_0\) with \(N = 7\).}
 	\end{figure}
 \end{frame}
+\end{comment}
 
 
 
-%----------------------------------------------------------
-%----------------------------------------------------------
 
-\begin{frame}{Status of Project}
-	\scriptsize
-	\begin{block}{So far...}
-		\begin{itemize}
-		   \item <1-> Derive and approximate hierarchies of moment equations for the coupled kinetic-fluid model with \textcolor{cyan}{$f$ on $S^2$}
-		   \begin{itemize}
-			  \item  1D Shear Flow
-		  	  \item  2D Rectilinear Flow
-		   \end{itemize}
-		\end{itemize}
-	\end{block}
-	\begin{block}{Now}
-		\begin{itemize}
-			\item <2-> Extension to the 3D case: moment equations for the coupled kinetic–fluid model with \textcolor{cyan}{$f$ on $S^2$}
-		\end{itemize}
-	\end{block}
-\end{frame}
 
 
 
