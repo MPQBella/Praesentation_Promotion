@@ -1,4 +1,4 @@
-\section{Wave Propagation Algorithm}
+
 
 %-------------------------------------------------------
 %-------------------------------------------------------
@@ -77,39 +77,54 @@
 			\end{itemize}
 		\end{column}
 		
-		%------------------ Rechte Spalte: Würfel ------------------%
+		%------------------ Rechte Spalte: 2D-Gitter ------------------%
 		\begin{column}{0.45\textwidth}
 			\centering
-			    % 2D-Gitter
-			\begin{tikzpicture}[scale=0.8]
-				% Titel
-				\node at (2,5) {2D grid with $z$-axis (schematic 3D)};
-				% nur äußeres Quadrat
-				\draw (0,0) rectangle (4,4);
-				
-				\node at (2,2) {$(i,j)$};
-				
-				% optionale äußere Beschriftungen
-				\node[below] at (0.5,0) {$x_{i-1/2}$};
-				\node[below] at (4,0) {$x_{i+1/2}$};
-				\node[below] at (2,0) {$x_{i}$};
-				\node[left]  at (0,4) {$y_{j+1/2}$};
-				\node[left]  at (0,0.0) {$y_{j-1/2}$};
-			    \node[left]  at (0,2) {$y_{j}$};
-				\node[right]  at (4,0) {$y_{j-1/2}$};
-				\node[right]  at (4,4) {$y_{j-1/2}$};
-			    \node[above] at (4,4) {$x_{i+1/2}$};
-				\node[above] at (0,4) {$x_{i-1/2}$};
-				
-				% z-Achse
-                \draw[dashed] (0,0) -- (2,1);
-                % Ursprung -> untere Zellkante
-                \node[left] at (0.6,0.25) {$z_{k-1/2}$};
-                % obere Zellkante
-                \node[right] at (1,1.2) {$z_{k+1/2}$};
-                % Zellzentrum
-                \node[right] at (0.5,0.75) {$z_k$};
-			\end{tikzpicture}
+		  \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+			% grid
+			\def\n{3}
+			\foreach \i in {0,...,\n} {
+				\draw[thin] (\i,0) -- (\i,\n);
+				\draw[thin] (0,\i) -- (\n,\i);
+			}
+			
+			% highlight cell (i,j)
+			\fill[blue!12] (1,1) rectangle (2,2);
+			\coordinate (C) at (1.5,1.5);
+			\node at (1.5,1.5) {$(i,j)$};
+			
+			% interfaces (thick)
+			\draw[thin] (1,1) -- (1,2);
+			\draw[thin] (2,1) -- (2,2);
+			\draw[thin] (1,1) -- (2,1);
+			\draw[thin] (1,2) -- (2,2);
+			
+			% external labels
+			\draw[dashed] (1,0) -- ++(0,-0.4) node[below] {$x_{i-\tfrac12}$};
+			\draw[dashed] (2,0) -- ++(0,-0.4) node[below] {$x_{i+\tfrac12}$};
+			\node[below] at (1.5,0) {$x_i$};
+			
+			\draw[dashed] (0,1) -- ++(-0.4,0) node[left] {$y_{j-\tfrac12}$};
+			\draw[dashed] (0,2) -- ++(-0.4,0) node[left] {$y_{j+\tfrac12}$};
+			\node[left] at (0,1.5) {$y_j$};
+		\end{tikzpicture}
+	%\begin{tikzpicture}[scale=0.8] % Titel 
+	%	\node at (2,5) {2D grid with $z$-axis (schematic 3D)}; 
+		% nur äußeres Quadrat
+	%	 \draw (0,0) rectangle (4,4); 
+	%	 \node at (2,2) {$(i,j)$}; 
+		 % optionale äußere Beschriftungen 
+	%	 \node[below] at (0.5,0) {$x_{i-1/2}$}; 
+	%	 \node[below] at (4,0) {$x_{i+1/2}$}; 
+	%	 \node[below] at (2,0) {$x_{i}$}; 
+	%	 \node[left] at (0,4) {$y_{j+1/2}$}; 
+	%	 \node[left] at (0,0.0) {$y_{j-1/2}$}; 
+	%	 \node[left] at (0,2) {$y_{j}$}; 
+	%	 \node[right] at (4,0) {$y_{j-1/2}$}; 
+	%	 \node[right] at (4,4) {$y_{j-1/2}$}; 
+	%	 \node[above] at (4,4) {$x_{i+1/2}$}; 
+	%	 \node[above] at (0,4) {$x_{i-1/2}$}; 
+	 %\end{tikzpicture}
          % 1D-Gitter
        % \begin{tikzpicture}[scale=0.8]
  	   %  \foreach \i in {0,1,2} {\draw (\i,0) rectangle (\i+1,0.8);}

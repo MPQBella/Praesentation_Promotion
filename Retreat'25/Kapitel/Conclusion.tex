@@ -56,11 +56,87 @@
     	}
     \end{frame}
     
-    \begin{frame}{Example}
-    	content
-    \end{frame}
-    %-------------------------------------------------------
     
+    %-------------------------------------------------------
+    %Example 1
+    %-------------------------------------------------------
+    %if (xi .lt. 50.d0) then
+    % uzk = 10.0d0
+    %else
+    % uzk = -10.0d0
+    % end if
+    % uxi = 0.d0
+    % uyi = 0.d0
+    % call defineAllgMatrixN1_driftdiffusion(A, Dr, uxi,
+    %  &           uyi, uzk, 0.d0, 0.d0, 0.d0, 0, 0, 0, 0.d0)
+    
+    % qinit
+    %  r1 = dsqrt((xi-40.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+    %  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+    %  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
+    %-------------------------------------------------------
+    \begin{frame}{Cluster formation Ex. 1}
+    		\scriptsize
+    		\begin{figure}[H]
+    			\centering
+    			\begin{minipage}{0.4\textwidth}
+    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=0}
+    			\end{minipage}
+    			\hfill 
+    			\begin{minipage}{0.4\textwidth}
+    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=33}
+    			\end{minipage}
+    		\end{figure}
+    		\begin{figure}[H]
+    			\centering
+    			\begin{minipage}{0.4\textwidth}
+    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=66}
+    			\end{minipage}
+    			\hfill 
+    			\begin{minipage}{0.4\textwidth}
+    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=83}
+    			\end{minipage}
+    			\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($u_z = \pm 1$).}
+    		\end{figure}
+    \end{frame}
+
+    %-------------------------------------------------------
+    %Example 2
+    %-------------------------------------------------------
+    %  if (xi .le. 50.d0) then
+    %  wxi = 1.d0
+    %  wyj = 1.d0
+    %  wzk = 1.d0
+    %    else
+    %  wxi = -1.d0
+    %  wyj = -1.d0
+    %  wzk = -1.d0
+    %  end if
+    %-------------------------------------------------------
+     \begin{frame}{Ex. 2}
+    	\scriptsize
+    	\begin{figure}[H]
+    		\centering
+    		\begin{minipage}{0.4\textwidth}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0}
+    		\end{minipage}
+    		\hfill 
+    		\begin{minipage}{0.4\textwidth}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=25}
+    		\end{minipage}
+    	\end{figure}
+    	\begin{figure}[H]
+    		\centering
+    		\begin{minipage}{0.4\textwidth}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=75}
+    		\end{minipage}
+    		\hfill 
+    		\begin{minipage}{0.4\textwidth}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=150}
+    		\end{minipage}
+    		\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($w_x=w_y=w_z=1$ for $x<50$ and $w_x=w_y=w_z=-1$ otherwise.}
+    	\end{figure}
+    \end{frame}
     
     \begin{frame}{Conclusion}
  content
