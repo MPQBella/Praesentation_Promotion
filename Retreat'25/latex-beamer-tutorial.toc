@@ -1,4 +1,5 @@
 \babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Recap}{3}{0}{1}
-\beamer@sectionintoc {2}{Wavepropagtion}{10}{0}{2}
-\beamer@sectionintoc {3}{Numerical Simulations}{15}{0}{3}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Derivation of Moment Equations and their Approximation}{7}{0}{2}
+\beamer@sectionintoc {3}{Numerical Results}{22}{0}{3}
+\beamer@sectionintoc {4}{Current Work in Progress}{31}{0}{4}

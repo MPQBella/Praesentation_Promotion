@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.17)  4 SEP 2025 17:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.17)  12 SEP 2025 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -970,8 +970,8 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box93
 )
 (./latex-beamer-tutorial.aux (./Kapitel/Introduction.aux)
-(./Kapitel/Wavepropagation.aux) (./Kapitel/Numerical_Simulations.aux)
-(./Kapitel/Conclusion.aux))
+(./Kapitel/Moment_Eq.aux) (./Kapitel/Wavepropagation.aux)
+(./Kapitel/ApproximationsCoupledModel.aux) (./Kapitel/Conclusion.aux))
 \openout1 = `latex-beamer-tutorial.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -1160,10 +1160,10 @@ Package caption Info: End \AtBeginDocument code.
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 83.
 
-<logo.png, id=37, 827.9733pt x 567.0786pt>
+<logo.png, id=41, 827.9733pt x 567.0786pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 95.
+Package pdftex.def Info: logo.png  used on input line 96.
 (pdftex.def)             Requested size: 68.45801pt x 46.88147pt.
 [1
 
@@ -1177,36 +1177,36 @@ Package pdftex.def Info: logo.png  used on input line 95.
 (./latex-beamer-tutorial.toc) [3
 
 
-] Excluding 'comment' comment.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 37.
+ut line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 37.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 17.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 37.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 17.
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 37.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 17.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 37.
+(Font)              using `T1/cmss/m/n' instead on input line 17.
 
 [4
 
@@ -1214,106 +1214,259 @@ LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
 
 ] [6
 
-]
-<Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png, id=96, 391.4625pt x 286.671pt>
-File: Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png Graphic file (type png)
-<use Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png>
-Package pdftex.def Info: Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png  used on input line
- 86.
-(pdftex.def)             Requested size: 117.43965pt x 86.00195pt.
-<Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png, id=98, 395.076pt x 286.671pt>
-File: Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png Graphic file (type png)
-<use Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png>
-Package pdftex.def Info: Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png  used on input li
-ne 86.
-(pdftex.def)             Requested size: 118.52371pt x 86.00195pt.
-<Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide
-(2.d0dsqrt(pi)).png, id=99, 526.96875pt x 395.22656pt>
-File: Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))D
-ivide(2.d0dsqrt(pi)).png Graphic file (type png)
-<use Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
-vide(2.d0dsqrt(pi)).png>
-Package pdftex.def Info: Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.
-d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 86.
-(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
-<Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide
-(2.d0dsqrt(pi)).png, id=100, 526.96875pt x 395.22656pt>
-File: Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))D
-ivide(2.d0dsqrt(pi)).png Graphic file (type png)
-<use Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
-vide(2.d0dsqrt(pi)).png>
-Package pdftex.def Info: Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.
-d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 86.
-(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
+] Excluding 'comment' comment.)
+\openout2 = `Kapitel/Moment_Eq.aux'.
 
-Overfull \vbox (10.33376pt too high) detected at line 86
- []
+ (./Kapitel/Moment_Eq.tex
+(./latex-beamer-tutorial.toc) [7
 
-[7
 
- <./Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png> <./Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png
-> <./Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
-vide(2.d0dsqrt(pi)).png (PNG copy)> <./Bilder_wxwy/14th_t=200_mx=my=200_random_
-Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png (PNG copy)>]
-[8
+
+
+] [8
 
 ] [9
 
-] Excluding 'comment' comment.)
-\openout2 = `Kapitel/Wavepropagation.aux'.
+]
+Overfull \hbox (6.01282pt too wide) detected at line 41
+[]
+ []
 
- (./Kapitel/Wavepropagation.tex
-(./latex-beamer-tutorial.toc) [10
+[10
 
+]
+Overfull \hbox (6.01282pt too wide) detected at line 41
+[]
+ []
 
+[11
 
+]
+<Bilder/MatrixA.png, id=191, 507.69675pt x 215.6055pt>
+File: Bilder/MatrixA.png Graphic file (type png)
+<use Bilder/MatrixA.png>
+Package pdftex.def Info: Bilder/MatrixA.png  used on input line 58.
+(pdftex.def)             Requested size: 253.84775pt x 107.80247pt.
+ [12
 
-] [11
+ <./Bilder/MatrixA.png>]
 
-] [12
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 99.
 
-] [13
+[13
 
-] Excluding 'comment' comment.
+]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 99.
+
 [14
 
-] Excluding 'comment' comment.)
-\openout2 = `Kapitel/Numerical_Simulations.aux'.
-
- (./Kapitel/Numerical_Simulations.tex
-(./latex-beamer-tutorial.toc) [15
-
-
-
-
-] Excluding 'comment' comment.
-Overfull \hbox (4.2168pt too wide) detected at line 52
+]
+Overfull \hbox (4.2168pt too wide) detected at line 136
 [][][]
  []
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 136.
+
+
+[15
+
+]
+Overfull \hbox (4.2168pt too wide) detected at line 136
+[][][]
+ []
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 136.
+
 
 [16
 
-]
-Overfull \hbox (4.2168pt too wide) detected at line 52
-[][][]
- []
+])
+\openout2 = `Kapitel/Wavepropagation.aux'.
 
-[17
+ (./Kapitel/Wavepropagation.tex [17
+
+
+
 
 ] [18
 
 ] [19
 
-])
+] [20
+
+]
+Excluding 'comment' comment. [21
+
+] Excluding 'comment' comment.)
+\openout2 = `Kapitel/ApproximationsCoupledModel.aux'.
+
+
+(./Kapitel/ApproximationsCoupledModel.tex (./latex-beamer-tutorial.toc)
+[22
+
+
+
+
+] [23
+
+] [24
+
+]
+<Bilder_wx/wx=1_Dr=0.1_N=7.png, id=278, 462.528pt x 346.896pt>
+File: Bilder_wx/wx=1_Dr=0.1_N=7.png Graphic file (type png)
+<use Bilder_wx/wx=1_Dr=0.1_N=7.png>
+Package pdftex.def Info: Bilder_wx/wx=1_Dr=0.1_N=7.png  used on input line 64.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+<Bilder_wx/wx=1_Dr=1_N=7.png, id=280, 462.528pt x 346.896pt>
+File: Bilder_wx/wx=1_Dr=1_N=7.png Graphic file (type png)
+<use Bilder_wx/wx=1_Dr=1_N=7.png>
+Package pdftex.def Info: Bilder_wx/wx=1_Dr=1_N=7.png  used on input line 64.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+ [25
+
+ <./Bilder_wx/wx=1_Dr=0.1_N=7.png> <./Bilder_wx/wx=1_Dr=1_N=7.png>]
+<Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png, id=289, 391.4625pt x 286.671pt>
+File: Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png Graphic file (type png)
+<use Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png>
+Package pdftex.def Info: Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png  used on input line
+ 79.
+(pdftex.def)             Requested size: 117.43965pt x 86.00195pt.
+<Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png, id=290, 395.076pt x 286.671pt>
+File: Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png Graphic file (type png)
+<use Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png>
+Package pdftex.def Info: Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png  used on input li
+ne 79.
+(pdftex.def)             Requested size: 118.52371pt x 86.00195pt.
+ [26
+
+ <./Bilder_wxwy/t=0_wxwy=1_wxwy=-1.png> <./Bilder_wxwy/t=200_wxwy=1_wxwy=-1.png
+>] [27
+
+]
+<Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192.png, id=307, 397.485pt x 3
+06.54526pt>
+File: Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192.png Graphic file (typ
+e png)
+<use Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192.png>
+Package pdftex.def Info: Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192.pn
+g  used on input line 114.
+(pdftex.def)             Requested size: 157.45813pt x 121.4372pt.
+<Bilder_wx/ClusterFormation/N=2vsN=6_Dr=0.05_mx=8192.png, id=308, 499.11469pt x
+ 385.44pt>
+File: Bilder_wx/ClusterFormation/N=2vsN=6_Dr=0.05_mx=8192.png Graphic file (typ
+e png)
+<use Bilder_wx/ClusterFormation/N=2vsN=6_Dr=0.05_mx=8192.png>
+Package pdftex.def Info: Bilder_wx/ClusterFormation/N=2vsN=6_Dr=0.05_mx=8192.pn
+g  used on input line 114.
+(pdftex.def)             Requested size: 157.45813pt x 121.59656pt.
+ [28
+
+ <./Bilder_wx/ClusterFormation/N=1vsN=6_Dr=0.05_mx=8192.png> <./Bilder_wx/Clust
+erFormation/N=2vsN=6_Dr=0.05_mx=8192.png>] [29
+
+]
+<Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(
+2.d0dsqrt(pi)).png, id=322, 526.96875pt x 395.22656pt>
+File: Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
+vide(2.d0dsqrt(pi)).png Graphic file (type png)
+<use Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Div
+ide(2.d0dsqrt(pi)).png>
+Package pdftex.def Info: Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d
+-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 159.
+(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
+<Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(
+2.d0dsqrt(pi)).png, id=323, 526.96875pt x 395.22656pt>
+File: Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
+vide(2.d0dsqrt(pi)).png Graphic file (type png)
+<use Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Div
+ide(2.d0dsqrt(pi)).png>
+Package pdftex.def Info: Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d
+-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 159.
+(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
+<Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide
+(2.d0dsqrt(pi)).png, id=324, 526.96875pt x 395.22656pt>
+File: Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))D
+ivide(2.d0dsqrt(pi)).png Graphic file (type png)
+<use Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
+vide(2.d0dsqrt(pi)).png>
+Package pdftex.def Info: Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.
+d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 159.
+(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
+<Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide
+(2.d0dsqrt(pi)).png, id=325, 526.96875pt x 395.22656pt>
+File: Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))D
+ivide(2.d0dsqrt(pi)).png Graphic file (type png)
+<use Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Di
+vide(2.d0dsqrt(pi)).png>
+Package pdftex.def Info: Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.
+d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png  used on input line 159.
+(pdftex.def)             Requested size: 131.74185pt x 98.8064pt.
+ [30
+
+ <./Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divi
+de(2.d0dsqrt(pi)).png (PNG copy)> <./Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=
+1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png (PNG copy)> <./Bilder_wx
+wy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt
+(pi)).png (PNG copy)> <./Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.
+d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi)).png (PNG copy)>])
 \openout2 = `Kapitel/Conclusion.aux'.
 
- (./Kapitel/Conclusion.tex [20
+ (./Kapitel/Conclusion.tex
+(./latex-beamer-tutorial.toc) [31
 
 
 
 
-]) Excluding 'comment' comment.
+] [32
+
+] [33
+
+]
+<Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0.jpg, id=359, 562.1pt x 421.575pt>
+File: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0.jpg Graphic file (type jpg)
+<use Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0.jpg>
+Package pdftex.def Info: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0.jpg  used 
+on input line 125.
+(pdftex.def)             Requested size: 118.04448pt x 88.53336pt.
+<Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=33.jpg, id=360, 562.1pt x 421.575pt>
+
+File: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=33.jpg Graphic file (type jpg)
+<use Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=33.jpg>
+Package pdftex.def Info: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=33.jpg  used
+ on input line 125.
+(pdftex.def)             Requested size: 118.04448pt x 88.53336pt.
+<Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133.jpg, id=361, 562.1pt x 421.575pt
+>
+File: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133.jpg Graphic file (type jpg)
+
+<use Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133.jpg>
+Package pdftex.def Info: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133.jpg  use
+d on input line 125.
+(pdftex.def)             Requested size: 118.04448pt x 88.53336pt.
+<Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166.jpg, id=362, 562.1pt x 421.575pt
+>
+File: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166.jpg Graphic file (type jpg)
+
+<use Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166.jpg>
+Package pdftex.def Info: Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166.jpg  use
+d on input line 125.
+(pdftex.def)             Requested size: 118.04448pt x 88.53336pt.
+
+Overfull \vbox (14.70726pt too high) detected at line 125
+ []
+
+[34
+
+ <./Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=0.jpg> <./Bilder_3D/2Glocken_wxi_
+wyj_wzi_2Cluster_t=33.jpg> <./Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133.jpg
+> <./Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166.jpg>] [35
+
+])
 Excluding 'comment' comment. Excluding 'comment' comment.
+Excluding 'comment' comment.
 \tf@nav=\write7
 \openout7 = `latex-beamer-tutorial.nav'.
 
@@ -1323,24 +1476,24 @@ Excluding 'comment' comment. Excluding 'comment' comment.
 \tf@snm=\write9
 \openout9 = `latex-beamer-tutorial.snm'.
 
-
-(./latex-beamer-tutorial.aux (./Kapitel/Introduction.aux)
-(./Kapitel/Wavepropagation.aux) (./Kapitel/Numerical_Simulations.aux)
+ (./latex-beamer-tutorial.aux
+(./Kapitel/Introduction.aux) (./Kapitel/Moment_Eq.aux)
+(./Kapitel/Wavepropagation.aux) (./Kapitel/ApproximationsCoupledModel.aux)
 (./Kapitel/Conclusion.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `latex-beamer-tutorial.out' has not changed.
-(rerunfilecheck)             Checksum: 2A950E33B316C7CDDCDB9C4E037518DC;332.
+(rerunfilecheck)             Checksum: 7825A9889E371918794580E0286D2B7B;737.
  ) 
 Here is how much of TeX's memory you used:
- 30380 strings out of 478287
- 607811 string characters out of 5849289
- 862167 words of memory out of 5000000
- 47864 multiletter control sequences out of 15000+600000
- 495291 words of font info for 91 fonts, out of 8000000 for 9000
+ 30487 strings out of 478287
+ 614767 string characters out of 5849289
+ 867260 words of memory out of 5000000
+ 47900 multiletter control sequences out of 15000+600000
+ 499284 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,17n,122p,443b,955s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,17n,122p,434b,856s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
@@ -1357,20 +1510,22 @@ m/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-
-super/sfso0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0500.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfss0700.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfsx0800.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfsx0900.pfb>
-Output written on latex-beamer-tutorial.pdf (20 pages, 895754 bytes).
+pe1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfsi0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfso0800.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfss0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfsx0800.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfsx0900.pfb>
+Output written on latex-beamer-tutorial.pdf (35 pages, 1696340 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 522 PDF objects out of 1000 (max. 8388607)
+ 350 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 
