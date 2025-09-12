@@ -23,7 +23,13 @@
     
     \begin{frame}{Accuracy Analysis}
     	\scriptsize
-    	
+    	Consider approximations of the three-dimensional hyperbolic
+    	system
+    	\begin{align}
+    		    	\partial_tQ + AQ_x + BQ_y + CQ_z = (D(wx, wy,wz) + DrE)Q \label{3D-hyperbolic}
+    	\end{align}
+        with externally imposed velocity gradient $w_x=1=w_y$ and $w_z=0$.
+ 
     	% Initialwert direkt über der Tabelle
     	Let 
     	\[
@@ -49,10 +55,10 @@
     		& 128 & $1.17\cdot10^{-5}$ & 1.99 & $1.38\cdot10^{-5}$ & 1.98 & - & - \\
     		\hline
     	\end{tabular}
-    	
+    
     	\vspace{0.5em}
     	\footnotesize{
-    		\textbf{Table:} Accuracy analysis for the component $c^0_0$ of the coupled 3D flow problem ($D_r=1$). The time step was limited by the CFL condition, with $cfl \le 0.45$ for method (1,1,1) and $cfl \le 0.9$ for method (2,2,2).  
+    		\textbf{Table:} Accuracy analysis for the component $c^0_0$ of (\ref{3D-hyperbolic}) using $D_r=1$. The time step was limited by the CFL condition, with $cfl \le 0.45$ for method (1,1,1) and $cfl \le 0.9$ for method (2,2,2).  
     	}
     \end{frame}
     
@@ -75,30 +81,7 @@
     %  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
     %  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
     %-------------------------------------------------------
-    \begin{frame}{Cluster formation Ex. 1}
-    		\scriptsize
-    		\begin{figure}[H]
-    			\centering
-    			\begin{minipage}{0.4\textwidth}
-    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=0}
-    			\end{minipage}
-    			\hfill 
-    			\begin{minipage}{0.4\textwidth}
-    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=33}
-    			\end{minipage}
-    		\end{figure}
-    		\begin{figure}[H]
-    			\centering
-    			\begin{minipage}{0.4\textwidth}
-    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=66}
-    			\end{minipage}
-    			\hfill 
-    			\begin{minipage}{0.4\textwidth}
-    				\includegraphics[scale=0.21]{Bilder_3D/2Glocken_uzk_2Cluster_t=83}
-    			\end{minipage}
-    			\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($u_z = \pm 1$).}
-    		\end{figure}
-    \end{frame}
+    
 
     %-------------------------------------------------------
     %Example 2
@@ -106,14 +89,17 @@
     %  if (xi .le. 50.d0) then
     %  wxi = 1.d0
     %  wyj = 1.d0
-    %  wzk = 1.d0
+    %  wzk = 0.d0
     %    else
     %  wxi = -1.d0
     %  wyj = -1.d0
-    %  wzk = -1.d0
+    %  wzk = 0.d0
     %  end if
+    %  r1 = dsqrt((xi-40.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+    %  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+    %  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
     %-------------------------------------------------------
-     \begin{frame}{Ex. 2}
+     \begin{frame}{Example 1}
     	\scriptsize
     	\begin{figure}[H]
     		\centering
@@ -122,19 +108,19 @@
     		\end{minipage}
     		\hfill 
     		\begin{minipage}{0.4\textwidth}
-    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=25}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=33}
     		\end{minipage}
     	\end{figure}
     	\begin{figure}[H]
     		\centering
     		\begin{minipage}{0.4\textwidth}
-    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=75}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=133}
     		\end{minipage}
     		\hfill 
     		\begin{minipage}{0.4\textwidth}
-    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=150}
+    			\includegraphics[scale=0.21]{Bilder_3D/2Glocken_wxi_wyj_wzi_2Cluster_t=166}
     		\end{minipage}
-    		\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($w_x=w_y=w_z=1$ for $x<50$ and $w_x=w_y=w_z=-1$ otherwise.}
+    		\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($w_x=w_y=1$ for $x<50$, $w_x=w_y=-1$ otherwise, and $w_z=0$ everywhere).}
     	\end{figure}
     \end{frame}
     
