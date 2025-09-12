@@ -6,9 +6,9 @@
 \begin{frame}{1D Wave Propagation Algorithm (LeVeque et al.)}
 	\scriptsize
 	
-	We consider the hyperbolic system
+	We consider the linear hyperbolic system
 	\[
-	q_t + f(q)_x = 0, \quad q \in \mathbb{R}^m
+	q_t + Aq_x = 0, \quad q \in \mathbb{R}^m
 	\]
 	
 	\begin{itemize}
@@ -21,7 +21,7 @@
 			q_{i+1}, & x > x_{i+1/2}.
 		\end{cases}
 		\]
-		\item Decompose the jump into waves along eigenvectors of $A = f'(q)$:
+		\item Decompose the jump into waves along eigenvectors of $A$:
 		\[
 		q_{i+1} - q_i = \sum_{p=1}^m \alpha^p r^p, 
 		\quad W^p = \alpha^p r^p, \; \text{travelling with } s^p.
@@ -47,13 +47,9 @@
 
 \begin{frame}{Multidimensional Wave Propagation (2D and 3D)}
 	\scriptsize
-	\begin{columns}[c]
-		
-		%------------------ Linke Spalte: Theorie ------------------%
-		\begin{column}{0.55\textwidth}
-			\textbf{General system:}
+	\textbf{Linear system:}
 			\[
-			q_t + f(q)_x + g(q)_y + h(q)_z = 0
+			q_t + Aq_x + Bq_y + Cq_z = 0
 			\]
 			
 			\textbf{Key ideas:}
@@ -75,70 +71,6 @@
 					\item 3D: Each wave generates transverse waves along in the other two directions.
 				\end{itemize}
 			\end{itemize}
-		\end{column}
-		
-		%------------------ Rechte Spalte: 2D-Gitter ------------------%
-		\begin{column}{0.45\textwidth}
-			\centering
-		  \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
-			% grid
-			\def\n{3}
-			\foreach \i in {0,...,\n} {
-				\draw[thin] (\i,0) -- (\i,\n);
-				\draw[thin] (0,\i) -- (\n,\i);
-			}
-			
-			% highlight cell (i,j)
-			\fill[blue!12] (1,1) rectangle (2,2);
-			\coordinate (C) at (1.5,1.5);
-			\node at (1.5,1.5) {$(i,j)$};
-			
-			% interfaces (thick)
-			\draw[thin] (1,1) -- (1,2);
-			\draw[thin] (2,1) -- (2,2);
-			\draw[thin] (1,1) -- (2,1);
-			\draw[thin] (1,2) -- (2,2);
-			
-			% external labels
-			\draw[dashed] (1,0) -- ++(0,-0.4) node[below] {$x_{i-\tfrac12}$};
-			\draw[dashed] (2,0) -- ++(0,-0.4) node[below] {$x_{i+\tfrac12}$};
-			\node[below] at (1.5,0) {$x_i$};
-			
-			\draw[dashed] (0,1) -- ++(-0.4,0) node[left] {$y_{j-\tfrac12}$};
-			\draw[dashed] (0,2) -- ++(-0.4,0) node[left] {$y_{j+\tfrac12}$};
-			\node[left] at (0,1.5) {$y_j$};
-		\end{tikzpicture}
-	%\begin{tikzpicture}[scale=0.8] % Titel 
-	%	\node at (2,5) {2D grid with $z$-axis (schematic 3D)}; 
-		% nur äußeres Quadrat
-	%	 \draw (0,0) rectangle (4,4); 
-	%	 \node at (2,2) {$(i,j)$}; 
-		 % optionale äußere Beschriftungen 
-	%	 \node[below] at (0.5,0) {$x_{i-1/2}$}; 
-	%	 \node[below] at (4,0) {$x_{i+1/2}$}; 
-	%	 \node[below] at (2,0) {$x_{i}$}; 
-	%	 \node[left] at (0,4) {$y_{j+1/2}$}; 
-	%	 \node[left] at (0,0.0) {$y_{j-1/2}$}; 
-	%	 \node[left] at (0,2) {$y_{j}$}; 
-	%	 \node[right] at (4,0) {$y_{j-1/2}$}; 
-	%	 \node[right] at (4,4) {$y_{j-1/2}$}; 
-	%	 \node[above] at (4,4) {$x_{i+1/2}$}; 
-	%	 \node[above] at (0,4) {$x_{i-1/2}$}; 
-	 %\end{tikzpicture}
-         % 1D-Gitter
-       % \begin{tikzpicture}[scale=0.8]
- 	   %  \foreach \i in {0,1,2} {\draw (\i,0) rectangle (\i+1,0.8);}
- 	   %  \node at (1.5, 1) {1D grid};
- 	    % \node at (0.5,0.4) {$i-1$};
- 	    % \node at (1.5,0.4) {$i$};
- 	   %  \node at (2.5,0.4) {$i+1$};
- 	    % \node[below] at (1,0) {$x_{i-1/2}$};
- 	   %  \node[below] at (2,0) {$x_{i+1/2}$};
-       % \end{tikzpicture}
- 
-      %  \vspace{0.5cm} % Abstand zwischen den Grafiken
- 	\end{column}
-  	\end{columns}
 \end{frame}
 
 
@@ -177,31 +109,6 @@
       \end{tikzpicture}
 \end{comment}
 
-\begin{comment}
-\begin{frame}{Multidimensional Wave Propagation (2D and 3D)}
-	\scriptsize
-	General system:
-	\[
-	q_t + f(q)_x + g(q)_y + h(q)_z = 0.
-	\]
-	
-	\begin{itemize}
-		\item At each cell face, solve a 1D Riemann problem in the normal direction.
-		\item Decompose the jump into waves $W^p$ and corresponding speeds $s^p$.
-		\item Compute fluctuations:
-		\[
-		\mathcal{A}^\pm \Delta q, \quad 
-		\mathcal{B}^\pm \Delta q, \quad 
-		\mathcal{C}^\pm \Delta q.
-		\]
-		\item Waves also propagate transversely:
-		\begin{itemize}
-			\item In 2D: a wave in $x-$direction can propagates in $y$-direction, and vice versa.
-			\item In 3D: each wave generates transverse waves in the other two directions.
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-\end{comment}
 
 %-------------------------------------------------------
 %-------------------------------------------------------
@@ -226,10 +133,13 @@ Examples of Transverse Interactions
 		Q_{i,j,k}^{n+1} &= Q_{i,j,k}^n
 		- \frac{\Delta t}{\Delta x} \Big( \mathcal{A}^+ \Delta q_{i-1/2,j,k}
 		+ \mathcal{A}^- \Delta q_{i+1/2,j,k} \Big) \\
-		&\quad - \frac{\Delta t}{\Delta y} \Big( \mathcal{B}^+ \Delta q_{i,j-1/2,k}
-		+ \mathcal{B}^- \Delta q_{i,j+1/2,k} \Big) \\
-		&\quad - \frac{\Delta t}{\Delta z} \Big( \mathcal{C}^+ \Delta q_{i,j,k-1/2}
-		+ \mathcal{C}^- \Delta q_{i,j,k+1/2} \Big).
+		& \quad- \frac{\Delta t}{\Delta y} \Big( \mathcal{B}^+ \Delta q_{i,j-1/2,k}
+		+ \mathcal{B}^- \Delta q_{i,j+1/2,k} \Big) 
+		- \frac{\Delta t}{\Delta z} \Big( \mathcal{C}^+ \Delta q_{i,j,k-1/2}
+		+ \mathcal{C}^- \Delta q_{i,j,k+1/2} \Big) \\
+		&\quad - \frac{\Delta t}{\Delta x} \left( F_{i+1/2,j,k} - F_{i-1/2,j,k} \right) 
+		- \frac{\Delta t}{\Delta y} \left( G_{i,j+1/2,k} - G_{i,j-1/2,k} \right) \\
+		&\quad- \frac{\Delta t}{\Delta z} \left( H_{i,j,k+1/2} - H_{i,j,k-1/2} \right).
 	\end{aligned}
 	\]
 \end{block}

@@ -1,4 +1,4 @@
-\section{Approximations of the Coupled Model}
+\section{Numerical Results}
 \begin{frame}{Approximation of Coupled Shear Flow Problem}
 	\scriptsize
 	Consider
@@ -39,6 +39,56 @@
 
 %----------------------------------------------------------
 
+\begin{frame}{Coupled Problems}
+	\begin{itemize}
+		\item externally imposed velocity field \checkmark
+		\item \textcolor{gray}{1D shear flow} \checkmark
+         \item \textcolor{gray}{2D rectilinear flow \checkmark}
+         \item \textcolor{gray}{3D flow with periodic boundary conditions}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Numerical Result for externally imposed velocity field}
+		\scriptsize
+		\begin{figure}[H]
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\includegraphics[scale=0.3]{Bilder_wx/wx=1_Dr=0.1_N=7}
+			\end{minipage}
+			\hfill 
+			\begin{minipage}{0.45\textwidth}
+				\includegraphics[scale=0.3]{Bilder_wx/wx=1_Dr=1_N=7}
+			\end{minipage}
+			\caption{Numerical solution of the drift-diffusion term with constant externally imposed velocity gradient corresponding to shear flow using different values of $D_r$.}	
+		\end{figure}
+\end{frame}
+
+\begin{frame}{Numerical Result for externally imposed velocity field}
+	\scriptsize
+	\begin{figure}[H]
+	\centering
+	 \begin{minipage}{0.4\textwidth}
+	 \includegraphics[scale=0.3]{Bilder_wxwy/t=0_wxwy=1_wxwy=-1}
+     \end{minipage}
+     \hfill 
+     \begin{minipage}{0.4\textwidth}
+	   \includegraphics[scale=0.3]{Bilder_wxwy/t=200_wxwy=1_wxwy=-1}
+     \end{minipage}
+     \caption{Numerical results for $c^0_0$ at different times using $D_r=1$ and $w_x=w_y=1$ for $x<50$ and $w_x=w_y=-1$ otherwise. A cluster with higher particle density splits into two, each moving in opposite directions.}
+    \end{figure}
+\end{frame}
+
+
+
+%----------------------------------------------------------
+\begin{frame}{Coupled Problems}
+	\begin{itemize}
+		\item externally imposed velocity field \checkmark
+		\item 1D shear flow \checkmark
+		\item \textcolor{gray}{2D rectilinear flow \checkmark}
+		\item \textcolor{gray}{3D flow with periodic boundary conditions}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Numerical Result for Shear Flow}
 		\scriptsize
@@ -66,29 +116,47 @@
 
 %----------------------------------------------------------
 
-
-\begin{frame}{Approximations of the Two-Dimensional Hyperbolic System}
-		\scriptsize
-		\begin{figure}[H]
-			\centering
-			\begin{minipage}{0.4\textwidth}
-				\includegraphics[scale=0.23]{Bilder_wxwy/Sol_onSphere_wx=1=wy_Dr=1_N=7}
-			\end{minipage}
-			\hfill 
-			\begin{minipage}{0.4\textwidth}
-				\includegraphics[scale=0.23]{Bilder_wxwy/Sol_onSphere_wx=-1=wy_Dr=1_N=7}
-			\end{minipage}
-			\caption{Numerical solution of the drift-diffusion term for fixed $w_x$ and $w_y$.}
-		\end{figure}
-		\begin{figure}[H]
-			\centering
-			\begin{minipage}{0.4\textwidth}
-				\includegraphics[scale=0.23]{Bilder_wxwy/t=0_wxwy=1_wxwy=-1}
-			\end{minipage}
-			\hfill 
-			\begin{minipage}{0.4\textwidth}
-				\includegraphics[scale=0.23]{Bilder_wxwy/t=200_wxwy=1_wxwy=-1}
-			\end{minipage}
-			\caption{Numerical results for $c^0_0$ at different times using $D_r=1$ and $w_x=w_y=1$ for $x<50$ and $w_x=w_y=-1$ otherwise. A cluster with higher particle density splits into two, each moving in opposite directions.}
-		\end{figure}
+\begin{frame}{Coupled Problems}
+	\begin{itemize}
+		\item externally imposed velocity field \checkmark
+		\item 1D shear flow \checkmark
+		\item 2D rectilinear flow \checkmark
+		\item \textcolor{gray}{3D flow with periodic boundary conditions}
+	\end{itemize}
 \end{frame}
+
+\begin{frame}
+	\scriptsize
+	\begin{figure}[H]
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[scale=0.25]{Bilder_wxwy/2nd_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi))}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[scale=0.25]{Bilder_wxwy/2nd_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi))}
+		\end{minipage}
+		
+		\vspace{1ex}
+		\centering
+		Solution structure of \(c^0_0\) with \(N = 1\).
+		
+		\vspace{2ex}
+		
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[scale=0.25]{Bilder_wxwy/14th_t=100_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi))}
+		\end{minipage}
+		\hfill 
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[scale=0.25]{Bilder_wxwy/14th_t=200_mx=my=200_random_Dr=1_(1.d0+(1.d-2rand(0)-5.d-4))Divide(2.d0dsqrt(pi))}
+		\end{minipage}
+		
+		\caption{Solution structure of \(c^0_0\) with \(N = 7\).}
+	\end{figure}
+\end{frame}
+
+
+
