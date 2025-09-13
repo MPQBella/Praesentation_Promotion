@@ -99,7 +99,7 @@
     %  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
     %  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
     %-------------------------------------------------------
-     \begin{frame}{Example 1}
+     \begin{frame}{Numerical Result for externally imposed velocity field}
     	\scriptsize
     	\begin{figure}[H]
     		\centering
@@ -125,6 +125,15 @@
     \end{frame}
     
     \begin{frame}{Conclusion}
- content
+     \begin{itemize}
+     	\item Derive and approximate moment systems for the kinetic Smochulowski equation with $f$ on $S^2$
+     	\item High-resolution wave propagation methods (LeVeque) were successfully adapted to 1D, 2D, and 3D moment systems.
+     	  \item Numerical tests:
+     	\begin{itemize}
+     		\item Drift vs. diffusion effects visible
+     		\item Clustering and splitting in flow fields
+     	\end{itemize}
+     	\item Outlook: simulations in fully coupled 3D flows and accuracy analysis.
+     \end{itemize}
     \end{frame}
 
