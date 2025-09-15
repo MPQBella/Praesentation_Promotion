@@ -64,7 +64,7 @@
     
     
     %-------------------------------------------------------
-    %Example 1
+    %Example 0
     %-------------------------------------------------------
     %if (xi .lt. 50.d0) then
     % uzk = 10.0d0
@@ -84,21 +84,72 @@
     
 
     %-------------------------------------------------------
-    %Example 2
+    %Example 1
     %-------------------------------------------------------
     %  if (xi .le. 50.d0) then
     %  wxi = 1.d0
     %  wyj = 1.d0
-    %  wzk = 0.d0
     %    else
     %  wxi = -1.d0
     %  wyj = -1.d0
-    %  wzk = 0.d0
     %  end if
+    %  wzk = 0.d0
     %  r1 = dsqrt((xi-40.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
-    %  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
-    %  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
+    %  q(i,j,k,1) = exp(-0.001*r1**2)
     %-------------------------------------------------------
+    
+         \begin{frame}{Numerical Result for externally imposed velocity field}
+    	\scriptsize
+    	Consider (\ref{3D-hyperbolic}) with externally imposed velocity field of the form
+    	\[
+    	w(x,y,z) =
+    	\begin{cases}
+    		(1,\,1,\,0), & x \leq 50, \\[6pt]
+    		(-1,\,-1,\,0), & x > 50 .
+    	\end{cases}
+    	\]
+    	Let 
+    	\[
+    	r = \sqrt{(x-40)^2+(y-50)^2+(z-50)^2}, \quad
+    	c^0_0(x, y, k, 0) = \exp(-0.001 \, r^2)
+    	\] 
+    	be the initial value. 
+    	
+    	\begin{figure}[H]
+    		\centering
+    		\begin{minipage}{0.32\textwidth}
+    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=0}
+    		\end{minipage}
+    		\hfill 
+    		\begin{minipage}{0.32\textwidth}
+    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=28}
+    		\end{minipage}
+    		\hfill 
+    		\begin{minipage}{0.32\textwidth}
+    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=200}
+    		\end{minipage}
+    		\caption{Solution of $c^0_0$ showing the splitting of an initial Gaussian peak into two clusters.}
+    	\end{figure}
+    \end{frame}
+
+%-------------------------------------------------------
+%Example 2
+%-------------------------------------------------------
+%  if (xi .le. 50.d0) then
+%  wxi = 1.d0
+%  wyj = 1.d0
+%  wzk = 0.d0
+%    else
+%  wxi = -1.d0
+%  wyj = -1.d0
+%  wzk = 0.d0
+%  end if
+%  r1 = dsqrt((xi-40.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+%  r2 = dsqrt((xi-60.d0)**2+(yj-50.d0)**2+(zk-50.d0)**2)
+%  q(i,j,k,1) = exp(-0.01*r1**2) + exp(-0.01*r2**2) 
+%-------------------------------------------------------
+
+\begin{comment}
      \begin{frame}{Numerical Result for externally imposed velocity field}
     	\scriptsize
     	\begin{figure}[H]
@@ -123,6 +174,7 @@
     		\caption{Evolution of $c^0_0$ at different times, showing two Gaussian clusters transported in opposite directions by a piecewise constant velocity field ($w_x=w_y=1$ for $x<50$, $w_x=w_y=-1$ otherwise, and $w_z=0$ everywhere).}
     	\end{figure}
     \end{frame}
+\end{comment}
     
     \begin{frame}{Conclusion}
      \begin{itemize}
