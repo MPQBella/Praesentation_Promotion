@@ -58,7 +58,7 @@
     
     	\vspace{0.5em}
     	\footnotesize{
-    		\textbf{Table:} Accuracy analysis for the component $c^0_0$ of (\ref{3D-hyperbolic}) using $D_r=1$. The time step was limited by the CFL condition, with $cfl \le 0.45$ for method (1,1,1) and $cfl \le 0.9$ for method (2,2,2).  
+    		\textbf{Table 2:} Accuracy analysis for the component $c^0_0$ of (\ref{3D-hyperbolic}) using $D_r=1$. The time step was limited by the CFL condition, with $cfl \le 0.45$ for method (1,1,1) and $cfl \le 0.9$ for method (2,2,2).  
     	}
     \end{frame}
     
@@ -122,11 +122,11 @@
     		\end{minipage}
     		\hfill 
     		\begin{minipage}{0.32\textwidth}
-    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=28}
+    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=85}
     		\end{minipage}
     		\hfill 
     		\begin{minipage}{0.32\textwidth}
-    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=200}
+    			\includegraphics[width=\linewidth]{Bilder_3D/1Glocke_wxi=wyj=1_wzk=0_2Cluster_t=142_2}
     		\end{minipage}
     		\caption{Solution of $c^0_0$ showing the splitting of an initial Gaussian peak into two clusters.}
     	\end{figure}
@@ -180,10 +180,10 @@
      \begin{itemize}
      	\item Derive and approximate moment systems for the kinetic Smochulowski equation with $f$ on $S^2$
      	\item High-resolution wave propagation methods (LeVeque) were successfully adapted to 1D, 2D, and 3D moment systems.
-     	  \item Numerical tests:
+     	\item Numerical tests:
      	\begin{itemize}
-     		\item Drift vs. diffusion effects visible
-     		\item Clustering and splitting in flow fields
+     		\item Drift vs. diffusion: alignment (small $D_r$) vs. smoothing (large $D_r$)
+     		\item Clustering under externally imposed velocity field
      	\end{itemize}
      	\item Outlook: simulations in fully coupled 3D flows and accuracy analysis.
      \end{itemize}
